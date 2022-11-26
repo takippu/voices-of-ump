@@ -6,6 +6,12 @@ module.exports = {
     "./resources/**/*.vue",
   ],
   theme: {
+    fontFamily: {
+      Mukta: ["Mukta, sans-serif"],
+    },
+    container:{
+      center: true,
+    },
     extend: {},
   },
   plugins: [],
