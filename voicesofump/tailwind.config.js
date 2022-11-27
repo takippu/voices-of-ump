@@ -7,7 +7,9 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      Mukta: ["Mukta, sans-serif"],
+      Mukta: ["Mukta"],
+      Roboto: ["Roboto"],
+      Glitch: ["Rubik Glitch"],
     },
     container:{
       center: true,
