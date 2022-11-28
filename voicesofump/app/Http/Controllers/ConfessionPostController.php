@@ -45,15 +45,16 @@ class ConfessionPostController extends Controller
     public function store(Request $request)
     {
         //
-        /** 
-         $newPost = ConfessionPost::create([
+        
+         ConfessionPost::create([
             'title' => $request->title,
             'content' => $request->content,
-
+            'user_id' => auth()->id()
         ]);
-        */
-        ConfessionPost::create($request->validated());
-        return redirect()->route('confessions.index');
+        return redirect()->back()->with('message', 'done');
+
+        //ConfessionPost::create($request->validated());
+        //return redirect()->route('confessions.index');
 
         
     }
