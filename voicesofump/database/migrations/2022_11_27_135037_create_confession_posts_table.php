@@ -20,7 +20,7 @@ return new class extends Migration
             $table->text('title'); //post title
             $table->text('content'); //post content
             $table->text('user_id'); //post user id
-            
+            $table->mediumText('image_path')->nullable();
             //
 
             $table->timestamps();

@@ -38,7 +38,8 @@ Route::get('confessions/{confessionPost}/edit', [ConfessionPostController::class
 Route::put('confessions/{confessionPost}/edit', [ConfessionPostController::class, 'update']); //edit post
 Route::delete('confessions/{confessionPost}/delete', [ConfessionPostController::class, 'destroy']); //delete post
 **/
-
+Route::put('confessions/{confessionPost}/edit', [ConfessionPostController::class, 'update']); //edit post
+Route::delete('confessions/{confessionPost}/delete', [ConfessionPostController::class, 'destroy']); //delete post
 Route::resource('confessions', ConfessionPostController::class)->parameters([
     'confessions' => 'confessionPost'
 ]);

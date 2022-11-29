@@ -44,13 +44,43 @@ class ConfessionPostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        /** 
+        if (!$request->has('image')) {
+            return response()->json(['message' => 'Missing file'], 422);
+        }else{
+            return response()->json(['message' => 'not miss file'], 422);
+
+        }
+        */
+        if($request->hasFile('image')){
+
+            //security purpose
+            $request->validate([
+                'image' => ['required', 'mimes:jpg,jpeg,png']
+            ]);
+
+            ConfessionPost::create([
+                'title' => $request->title,
+                'content' => $request->content,
+                'user_id' => auth()->id(),
+                'image_path' => $this->storeImage($request)
+            ]);
+
+
+
+        }else{
+            ConfessionPost::create([
+                'title' => $request->title,
+                'content' => $request->content,
+                'user_id' => auth()->id(),
+                
+            ]);
+        }
         
-         ConfessionPost::create([
-            'title' => $request->title,
-            'content' => $request->content,
-            'user_id' => auth()->id()
-        ]);
+
+            
+     
+
         return redirect()->back()->with('message', 'done');
 
         //ConfessionPost::create($request->validated());
@@ -82,9 +112,9 @@ class ConfessionPostController extends Controller
     public function edit(ConfessionPost $confessionPost)
     {
         //
-        return view('confessions.show', [
+        return view('confessions.edit', [
             'confessions' => $confessionPost,
-            compact('confessionPost')
+           
         ]);
     }
 
@@ -98,8 +128,11 @@ class ConfessionPostController extends Controller
     public function update(Request $request, ConfessionPost $confessionPost)
     {
         //
-        $confessionPost->update($request->validated());
-        return redirect()->route('confessions.index');
+        $confessionPost->update([
+            'title' => $request->title,
+            'content' => $request->content,
+        ]);
+        return redirect('/confessions/'. $confessionPost->id);
     }
 
     /**
@@ -112,7 +145,16 @@ class ConfessionPostController extends Controller
     {
         //
         $confessionPost->delete();
-        return redirect()->route('confessions.index');
+        return redirect()->route('confessions.index')
+        ->with('success-delete', 'delete successfully');
 
+    }
+
+    private function storeImage($request){
+
+        $newImageName = uniqid() . '-' . $request->title . '.' . 
+        $request->image->extension();
+        
+        return $request->image->move($newImageName);
     }
 }

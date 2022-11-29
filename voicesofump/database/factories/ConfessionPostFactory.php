@@ -21,7 +21,8 @@ class ConfessionPostFactory extends Factory
             //
             'title' => $this->faker->sentence,
             'content' => $this->faker->paragraph(30),
-            'user_id' => User::factory()
+            'user_id' => User::factory(),
+            
         ];
     }
 }
