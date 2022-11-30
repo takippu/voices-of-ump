@@ -24,6 +24,13 @@ class ConfessionPostController extends Controller
         ]);
     }
 
+    public function indexAtWelcome(){
+        $getPost = ConfessionPost::all();
+        return view('welcome', [
+            'confessions' => $getPost,
+        ]);
+    }
+
 
     /**
      * Show the form for creating a new resource.

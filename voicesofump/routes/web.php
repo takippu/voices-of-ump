@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', [ConfessionPostController::class, 'indexAtWelcome'], function () {
     return view('welcome');
 });
 
@@ -43,4 +43,6 @@ Route::delete('confessions/{confessionPost}/delete', [ConfessionPostController::
 Route::resource('confessions', ConfessionPostController::class)->parameters([
     'confessions' => 'confessionPost'
 ]);
+
+
 //
