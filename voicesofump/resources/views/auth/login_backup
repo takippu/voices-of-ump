@@ -1,5 +1,5 @@
 
-{{--
+
 <x-guest-layout>
     <x-jet-authentication-card>
         <x-slot name="logo">
@@ -48,17 +48,15 @@
         </form>
     </x-jet-authentication-card>
 </x-guest-layout>
---}}
 
+{{--
 <!DOCTYPE html>
 <html lang="en">
 <head>
        
      @include('includes.header')
-     <meta name="csrf-token" content="{{ csrf_token() }}">
-     
      @include('includes.head')
-
+    
 </head>
 <body>
     <!--
@@ -73,18 +71,14 @@
 <div class="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
     <div class="mx-auto max-w-lg">
       <h1 class="text-center text-2xl font-bold text-indigo-600 sm:text-3xl">
-        welcome back
+        Get started today
       </h1>
   
       <p class="mx-auto mt-4 max-w-md text-center text-gray-500">
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati sunt
         dolores deleniti inventore quaerat mollitia?
       </p>
-      @if (session('status'))
-            <div class="mb-4 font-medium text-sm text-green-600">
-                {{ session('status') }}
-            </div>
-      @endif
+  
       <form action="{{ route('login') }}" method="POST" class="mt-6 mb-0 space-y-4 rounded-lg p-8 shadow-2xl">
         @csrf
         <p class="text-lg font-medium">Sign in to your account</p>
@@ -96,7 +90,6 @@
             <input
               type="email"
               id="email"
-              name="email"
               class="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
               placeholder="Enter email"
             />
@@ -127,7 +120,6 @@
             <input
               type="password"
               id="password"
-              name="password"
               class="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
               placeholder="Enter password"
             />
@@ -166,11 +158,12 @@
   
         <p class="text-center text-sm text-gray-500">
           No account?
-          <a class="underline" href="./register">Sign up</a>
+          <a class="underline" href="">Sign up</a>
         </p>
       </form>
     </div>
   </div>
-  @include('includes.footer')
+  
 </body>
 </html>
+--}}

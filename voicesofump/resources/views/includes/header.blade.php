@@ -10,7 +10,7 @@
         
         </ul>
         <ul class="hidden sm:flex flex-1 justify-end items-center gap-1 text-black uppercase text-xs">
-            <a href="./login"><button type="button" class="bg-slate-100 font-semibold text-black rounded-md px-7 py-3">Login</button></a>
+            <a href=".././login"><button type="button" class="bg-slate-100 font-semibold text-black rounded-md px-7 py-3">Sign In</button></a>
             <!--<button type="button" class="bg-blue-700 font-semibold  text-white rounded-md px-5 py-3"">Register</button> -->
         </ul>
         <div class="flex sm:hidden flex-1 justify-end">
