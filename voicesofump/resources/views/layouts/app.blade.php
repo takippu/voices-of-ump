@@ -21,9 +21,10 @@
         @livewireStyles
     </head>
     <body class="font-sans antialiased">
-        <x-jet-banner />
+        <x-jet-banner /> 
 
-        <div class="min-h-screen">
+        <div class="">
+        <!-- <div class="min-h-screen"> -->
             @livewire('navigation-menu')
 
             <!-- Page Heading -->
@@ -45,4 +46,5 @@
 
         @livewireScripts
     </body>
+    @include('includes.footer')
 </html>

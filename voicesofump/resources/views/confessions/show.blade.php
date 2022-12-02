@@ -14,7 +14,7 @@
         
       </p>
   
-      <div class="max-w-3xl mx-auto">
+      <div class="max-w-3xl mx-auto mt-4">
         {!! $confessions->content !!}
       </div>
     </article>
@@ -57,7 +57,7 @@
   </p>
   
 
-  <div class="max-w-3xl mx-auto">
+  <div class="max-w-3xl mx-auto mt-4">
     {!! $confessions->content !!}
   </div>
 </article>

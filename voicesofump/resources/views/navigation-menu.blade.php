@@ -1,4 +1,5 @@
-<nav class="container flex items-center px-3 py-1"">
+<!-- used for auth() user-->
+<nav class="container mx-auto max-w-none flex items-center justify-between px-3 py-1 border border-b border-gray-200">
     <!-- Primary Navigation Menu -->
     <div class="py-1"><a href="./"><img src="{{ asset('assets/img/logo.png')}}" alt="logo" width="200" height="200"></div>
         <ul class="hidden px-7 sm:flex flex-1 justify-start items-center gap-12 text-black uppercase text-xs">
@@ -204,4 +205,5 @@
             </div>
         </div>
     </div>
+
 </nav>

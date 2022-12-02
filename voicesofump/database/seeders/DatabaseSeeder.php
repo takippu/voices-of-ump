@@ -24,6 +24,8 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
         ]);
 
+        //confession seeders
+        \App\Models\ConfessionPost::factory(10)->create();
         
     }
 }
