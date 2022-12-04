@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ConfessionPostController;
+use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\PetitionPostController;
 use App\Models\ConfessionPost;
 use Illuminate\Support\Facades\Route;
@@ -52,3 +53,6 @@ Route::delete('petitions/{petitionPost}/delete', [PetitionPostController::class,
 Route::resource('petitions', PetitionPostController::class)->parameters([
     'petitions' => 'petitionPost'
 ]);
+
+//others
+Route::get('/logout', [LogoutController::class, 'store']);

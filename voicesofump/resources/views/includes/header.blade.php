@@ -31,13 +31,11 @@
         <a href="./user/profile" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-200 dark:hover:text-black">Profile</a>
       </li>
       <li> 
-        <form method="POST" action="{{ route('logout') }}" x-data>
-            @csrf
-
-            <x-jet-responsive-nav-link href="{{ route('logout') }}"
-                           @click.prevent="$root.submit();">
-                {{ __('Log Out') }}
-            </x-jet-responsive-nav-link>
+        <form method="POST" action="{{ route('logout') }}">
+        @csrf
+        
+        
+        <a href="{{ route('logout') }}" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-200 dark:hover:text-black" @click.prevent="$root.submit();">Log out</a>
         </form>
     </li>
     </ul>
