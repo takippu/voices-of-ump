@@ -1,8 +1,10 @@
 <!-- component -->
-    <a href="{{route('confessions.create')}}" class="inline-block rounded-lg bg-indigo-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700 mt-14 ml-10"> Create Confession </a>
+@auth
+<a href="{{route('petitions.create')}}" class="inline-block rounded-lg bg-indigo-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700 mt-14 ml-10"> Create Confession </a>
+@endauth
 <section class="flex flex-row flex-wrap mx-auto">
       <!-- Card Component -->
-      @forelse($confessions as $post)
+      @forelse($petitions as $post)
       <div
         class="transition-all duration-150 flex w-full px-4 py-6 md:w-1/2 lg:w-1/3"
       >
@@ -22,7 +24,7 @@
           </div>
           <div class="flex items-center justify-between px-4 py-2 overflow-hidden">
             <span class="text-xs font-medium text-blue-600 uppercase">
-              Confession
+              Petitions
             </span>
             <div class="flex flex-row items-center">
               <div
@@ -94,7 +96,7 @@
           </div>
           <hr class="border-gray-300" />
           <div class="flex flex-wrap items-center flex-1 px-4 py-1 text-center mx-auto">
-            <a href="/confessions/{{ $post->id }}" class="hover:underline">
+            <a href="/petitions/{{ $post->id }}" class="hover:underline">
               <h2 class="text-2xl font-bold tracking-normal text-gray-800">
                 {{ucfirst($post->title)}}
               </h2>

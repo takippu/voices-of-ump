@@ -7,7 +7,7 @@
     </head>
 
 <body>
-  @include('includes.componentPost')
+  @include('includes.componentPetition')
 </body>
 @include('includes.footer')
 </html>
@@ -16,7 +16,7 @@
 @auth
 <x-app-layout>
 
-  @include('includes.componentPost')
+  @include('includes.componentPetition')
 
 </x-app-layout>
 @endauth
