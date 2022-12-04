@@ -25,6 +25,17 @@
         </div>
         
     </section>
+    <!-- Petitions -->
+    <section class="relative">
+        <div class="container flex mt-9 ml-9">
+            <p class="text-slate-900 tracking-wide text-xl font-bold leading-relaxed">Recent Petitions</p>
+            <a class="text-blue-600" href="{{ route('petitions.index') }}"> Browse All </a>
+        </div>
+        <div class="container flex flex-col-reverse lg:flex-row items-stretch gap-12 mt-5 lg:mt-15">
+            @include('includes.petitions')
+        </div>
+        
+    </section>
 
     <!-- Confessions -->
     <section class="relative">
@@ -37,8 +48,6 @@
         </div>
         
     </section>
-
-    <!-- Petitions -->
 
 
 </body>

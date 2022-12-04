@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ConfessionPost;
+use App\Models\PetitionPost;
 use Illuminate\Http\Request;
 
 class ConfessionPostController extends Controller
@@ -23,11 +24,13 @@ class ConfessionPostController extends Controller
             'confessions' => $getPost,
         ]);
     }
-
+ /** to display posts at welcome page */
     public function indexAtWelcome(){
         $getPost = ConfessionPost::all();
+        $getPost2 = PetitionPost::all();
         return view('welcome', [
             'confessions' => $getPost,
+            'petitions' => $getPost2,
         ]);
     }
 

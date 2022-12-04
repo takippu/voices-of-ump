@@ -1,7 +1,7 @@
 <div class="p-10 grid grid-flow-row grid-cols-5 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-5">
    
    
-    @forelse($confessions as $post)
+    @forelse($petitions as $post)
         @if($loop->iteration == 6)
             @break
         @endif
@@ -17,7 +17,7 @@
         @endif
 
         <div class="px-6 py-4">
-       <a href="./confessions/{{ $post->id }}" class="text-xl font-semibold text-gray-800 hover:underline ">
+       <a href="./petitions/{{ $post->id }}" class="text-xl font-semibold text-gray-800 hover:underline ">
            {{ucfirst($post->title)}}
        </a>
        <p class="text-gray-700 text-base">

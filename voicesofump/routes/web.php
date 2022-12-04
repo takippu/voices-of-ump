@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ConfessionPostController;
+use App\Http\Controllers\PetitionPostController;
 use App\Models\ConfessionPost;
 use Illuminate\Support\Facades\Route;
 
@@ -45,4 +46,9 @@ Route::resource('confessions', ConfessionPostController::class)->parameters([
 ]);
 
 
-//
+//Petition Routes
+Route::put('petitions/{petitionPost}/edit', [PetitionPostController::class, 'update']); //edit post
+Route::delete('petitions/{petitionPost}/delete', [PetitionPostController::class, 'destroy']); //delete post
+Route::resource('petitions', PetitionPostController::class)->parameters([
+    'petitions' => 'petitionPost'
+]);
