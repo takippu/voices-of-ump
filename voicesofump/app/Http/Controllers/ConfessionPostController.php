@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\ConfessionPost;
 use App\Models\PetitionPost;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ConfessionPostController extends Controller
 {
@@ -62,36 +63,67 @@ class ConfessionPostController extends Controller
 
         }
         */
-        if($request->hasFile('image')){
+        //check auth or guest
+        if(Auth::check()){
+            if($request->hasFile('image')){
 
-            //security purpose
-            $request->validate([
-                'image' => ['required', 'mimes:jpg,jpeg,png']
-            ]);
-
-            ConfessionPost::create([
-                'title' => $request->title,
-                'content' => $request->content,
-                'user_id' => auth()->id(),
-                'image_path' => $this->storeImage($request)
-            ]);
-
-
-
-        }else{
-            ConfessionPost::create([
-                'title' => $request->title,
-                'content' => $request->content,
-                'user_id' => auth()->id(),
-                
-            ]);
-        }
-        
-
+                //security purpose
+                $request->validate([
+                    'image' => ['required', 'mimes:jpg,jpeg,png']
+                ]);
+    
+                ConfessionPost::create([
+                    'title' => $request->title,
+                    'content' => $request->content,
+                    'user_id' => auth()->id(),
+                    'image_path' => $this->storeImage($request)
+                ]);
+    
+    
+    
+            }else{
+                ConfessionPost::create([
+                    'title' => $request->title,
+                    'content' => $request->content,
+                    'user_id' => auth()->id(),
+                    
+                ]);
+            }
             
-     
+    
+                
+         
+    
+            
+        }else{
+            if($request->hasFile('image')){
+
+                //security purpose
+                $request->validate([
+                    'image' => ['required', 'mimes:jpg,jpeg,png']
+                ]);
+    
+                ConfessionPost::create([
+                    'title' => $request->title,
+                    'content' => $request->content,
+                    'user_id' => '0000',
+                    'image_path' => $this->storeImage($request)
+                ]);
+    
+    
+    
+            }else{
+                ConfessionPost::create([
+                    'title' => $request->title,
+                    'content' => $request->content,
+                    'user_id' => '0000',
+                    
+                ]);
+            }
+        }
 
         return redirect()->back()->with('message', 'done');
+
 
         //ConfessionPost::create($request->validated());
         //return redirect()->route('confessions.index');
