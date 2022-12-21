@@ -106,7 +106,7 @@ class ConfessionPostController extends Controller
                 ConfessionPost::create([
                     'title' => $request->title,
                     'content' => $request->content,
-                    'user_id' => '0000',
+                    'user_id' => '0',
                     'image_path' => $this->storeImage($request)
                 ]);
     
@@ -116,7 +116,7 @@ class ConfessionPostController extends Controller
                 ConfessionPost::create([
                     'title' => $request->title,
                     'content' => $request->content,
-                    'user_id' => '0000',
+                    'user_id' => '0',
                     
                 ]);
             }

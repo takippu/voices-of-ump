@@ -2,7 +2,7 @@
     <a href="{{route('confessions.create')}}" class="inline-block rounded-lg bg-indigo-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700 mt-14 ml-10"> Create Confession </a>
 <section class="flex flex-row flex-wrap mx-auto">
       <!-- Card Component -->
-      @forelse($confessions as $post)
+      @forelse($confessions->reverse() as $post)
       <div
         class="transition-all duration-150 flex w-full px-4 py-6 md:w-1/2 lg:w-1/3"
       >
