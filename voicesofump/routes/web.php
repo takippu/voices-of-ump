@@ -5,6 +5,7 @@ use App\Http\Controllers\ConfessionPostController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\PetitionPostController;
 use App\Http\Controllers\ReplyController;
+use App\Models\Comment;
 use App\Models\ConfessionPost;
 use Illuminate\Support\Facades\Route;
 
@@ -61,5 +62,5 @@ Route::get('/logout', [LogoutController::class, 'store']);
 
 //comment
 Route::post('confessions/{confessionPost}/comment', [CommentController::class, 'store']);
-
+Route::delete('confessions/{confessionPost}/comment/{comment}/delete', [CommentController::class, 'destroy'])->name('comment.destroy'); //delete post
 Route::post('confessions/{confessionPost}/reply', [ReplyController::class, 'store']);

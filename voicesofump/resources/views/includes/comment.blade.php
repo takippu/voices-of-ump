@@ -21,13 +21,16 @@
         </button>
         <!-- Dropdown menu -->
         <div id="dropdownComment1"
-            class="hidden z-10 w-36 bg-white rounded divide-y divide-gray-100 shadow ">
+            class="hidden z-10 w-25 bg-white rounded divide-y divide-gray-100 shadow ">
             <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
                 aria-labelledby="dropdownMenuIconHorizontalButton">
                 @if (Auth::id() == $comment->user_id)
                 <li>
-                    <a href="#"
-                        class="block py-2 px-4 hover:bg-gray-100 ">Remove</a>
+                    <form action="{{route('comment.destroy', [$confessions->id, $comment->id])}}" method="POST">
+                            @csrf
+                            @method('DELETE')    
+                          <button type="submit" class="block py-2 px-4 hover:bg-gray-100 ">Remove</button>
+                     </form>
                 </li>
                 @else
                 <li>

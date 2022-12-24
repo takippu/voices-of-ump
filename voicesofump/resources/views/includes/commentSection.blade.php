@@ -1,4 +1,5 @@
 <section class=" py-8 lg:py-16">
+
     <div class="max-w-2xl mx-auto px-4">
     @if(session('message')=='autherror' || session('message')=='autherrorreply')
         <div class="p-4 mb-4 text-sm text-blue-700 bg-blue-100 rounded-lg dark:bg-blue-200 dark:text-blue-800" role="alert">
@@ -48,8 +49,8 @@
         
     @empty
    
-
-    <p> empty</p>
+        @include('includes.nocommentComponent')
+    
     @endforelse
 
 </div>

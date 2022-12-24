@@ -37,4 +37,12 @@ class CommentController extends Controller
             return redirect()->back()->with('message', 'autherror' );
         }
     }
+    public function destroy($post,$comment)
+    {
+        $comm = Comment::find($comment);
+        $comm->delete();
+        return redirect()->back()
+        ->with('success-delete', 'delete successfully');
+
+    }
 }
