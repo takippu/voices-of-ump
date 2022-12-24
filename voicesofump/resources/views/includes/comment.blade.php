@@ -24,6 +24,7 @@
             class="hidden z-10 w-36 bg-white rounded divide-y divide-gray-100 shadow ">
             <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
                 aria-labelledby="dropdownMenuIconHorizontalButton">
+                @if (Auth::id() == $comment->user_id)
                 <li>
                     <a href="#"
                         class="block py-2 px-4 hover:bg-gray-100 ">Edit</a>
@@ -32,10 +33,13 @@
                     <a href="#"
                         class="block py-2 px-4 hover:bg-gray-100 ">Remove</a>
                 </li>
+                @else
                 <li>
                     <a href="#"
                         class="block py-2 px-4 hover:bg-gray-100 ">Report</a>
                 </li>
+                @endif
+                
             </ul>
         </div>
     </footer>
