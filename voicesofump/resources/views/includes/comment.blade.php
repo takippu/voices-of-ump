@@ -3,7 +3,7 @@
         <div class="flex items-center">
             <p class="inline-flex items-center mr-3 text-sm text-gray-900 "><img
                     class="mr-2 w-6 h-6 rounded-full"
-                    src="https://flowbite.com/docs/images/people/profile-picture-2.jpg"
+                    src="{{$comment->user->profile_photo_url }}"
                     alt="{{$comment->user->name}}">{{$comment->user->name}}</p>
             <p class="text-sm text-gray-600 dark:text-gray-400"><time pubdate datetime="2022-02-08"
                     title="February 8th, 2022">{{$comment->created_at->diffForHumans()}}</time></p>
@@ -44,11 +44,54 @@
         </div>
     </footer>
     <p class="text-gray-500 dark:text-gray-400">{{$comment->comment}}</p>
+
     <div class="flex items-center mt-4 space-x-4">
         <button type="button"
+            onclick="show()"
             class="flex items-center text-sm text-gray-500 hover:underline dark:text-gray-400">
             <svg aria-hidden="true" class="mr-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
             Reply
         </button>
-    </div>
+        <button type="button"
+            id="showreply"
+            name="showreply-{{$comment->id}}"
+            onclick="showReplies()"
+            class="flex items-center text-sm text-gray-500 hover:underline dark:text-gray-400">
+            <svg aria-hidden="true" class="mr-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+            Show Replies
+        </button>
+        <p id="demo"></p>
+
+        <button type="button"
+            id="hidereply"
+            name="hidereply-{{$comment->id}}"
+            onclick="hideReplies()"
+            class="hidden items-center text-sm text-gray-500 hover:underline dark:text-gray-400">
+            <svg aria-hidden="true" class="mr-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+            Hide Replies
+        </button>
+        <br>
+        <!-- Reply form start -->
+        <form method="POST" action="/confessions/{{$confessions->id}}/reply" class="hidden" id="reply-form">
+            @csrf
+            <input type="hidden" value="{{$comment->id}}" name="comment_parent_id">
+            <textarea placeholder="Reply to comment" rows="4" name="reply"></textarea>
+            <button type="submit">Submit</button>
+            <button type="button" onclick="hide()">Cancel</button>
+        </form>
+        <!-- Reply form end -->
+    </div>  
+
+    
+
 </article>
+<div id="replies" name="replies-{{$comment->id}}" class="hidden">
+@forelse ($comment->replies as $reply)
+
+    @include('includes.replies')
+
+    
+@empty
+    
+@endforelse
+</div>

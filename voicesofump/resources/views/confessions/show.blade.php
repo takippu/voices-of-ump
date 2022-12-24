@@ -68,6 +68,6 @@
   </div>
 @include('includes.commentSection')
 <script src="https://unpkg.com/flowbite@1.5.5/dist/flowbite.js"></script>
-
+<script src="{{ asset('/js.js') }} "></script>
 </x-app-layout>
 @endauth

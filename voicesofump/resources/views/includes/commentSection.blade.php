@@ -17,6 +17,7 @@
           </button>
           
       </div>
+</form>
 
   </div>
     @forelse ($confessions->comments as $comment)
@@ -28,6 +29,6 @@
 
     <p> empty</p>
     @endforelse
-</form>
+
 </div>
 </section>
