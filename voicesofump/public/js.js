@@ -1,23 +1,28 @@
-function show(){
-    document.getElementById('reply-form').style.height="400px"
-    document.getElementById('reply-form').style.display="block"
-    document.getElementById('show').style.display="none"
+function showReplyForm(commentID){
+
+    document.getElementById('reply-form-'+commentID).style.height="auto"
+    document.getElementById('reply-form-'+commentID).style.display="block"
+    document.getElementById('showReplyForm-'+commentID).style.display="none"
+    document.getElementById('hideReplyForm-'+commentID).style.display="flex"
 }
-function hide(){
-    document.getElementById('reply-form').style.height="0px"
-    document.getElementById('reply-form').style.display="none"
-    document.getElementById('show').style.display="inline"
+function hideReplyForm(commentID){
+    document.getElementById('reply-form-'+commentID).style.height="0px"
+    document.getElementById('reply-form-'+commentID).style.display="none"
+    document.getElementById('showReplyForm-'+commentID).style.display="flex"
+    document.getElementById('hideReplyForm-'+commentID).style.display="none"
 }
 
-function showReplies(){
-    document.getElementById('replies').style.height="400px"
-    document.getElementById('replies').style.display="block"
-    document.getElementById('showreply').style.display="none"
-    document.getElementById('hidereply').style.display="flex"
+
+function showReplies(commentID){
+
+    document.getElementById('replies-'+commentID).style.height="auto"
+    document.getElementById('replies-'+commentID).style.display="block"
+    document.getElementById('showreply-'+commentID).style.display="none"
+    document.getElementById('hidereply-'+commentID).style.display="flex"
 }
-function hideReplies(){
-    document.getElementById('replies').style.height="0px"
-    document.getElementById('replies').style.display="none"
-    document.getElementById('showreply').style.display="flex"
-    document.getElementById('hidereply').style.display="none"
+function hideReplies(commentID){
+    document.getElementById('replies-'+commentID).style.height="0px"
+    document.getElementById('replies-'+commentID).style.display="none"
+    document.getElementById('showreply-'+commentID).style.display="flex"
+    document.getElementById('hidereply-'+commentID).style.display="none"
 }

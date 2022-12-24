@@ -47,51 +47,72 @@
 
     <div class="flex items-center mt-4 space-x-4">
         <button type="button"
-            onclick="show()"
+            id="showReplyForm-{{$comment->id}}"
+            onclick="showReplyForm({{$comment->id}})"
             class="flex items-center text-sm text-gray-500 hover:underline dark:text-gray-400">
             <svg aria-hidden="true" class="mr-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
             Reply
         </button>
         <button type="button"
-            id="showreply"
-            name="showreply-{{$comment->id}}"
-            onclick="showReplies()"
+            id="hideReplyForm-{{$comment->id}}"
+            onclick="hideReplyForm({{$comment->id}})"
+            class="hidden items-center text-sm text-gray-500 hover:underline dark:text-gray-400">
+            <svg aria-hidden="true" class="mr-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
+            Cancel Reply
+         </button>
+
+        <button type="button"
+            id="showreply-{{$comment->id}}"
+            
+            onclick="showReplies({{$comment->id}})"
             class="flex items-center text-sm text-gray-500 hover:underline dark:text-gray-400">
             <svg aria-hidden="true" class="mr-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
             Show Replies
         </button>
-        <p id="demo"></p>
+
 
         <button type="button"
-            id="hidereply"
-            name="hidereply-{{$comment->id}}"
-            onclick="hideReplies()"
+            id="hidereply-{{$comment->id}}"
+           
+            onclick="hideReplies({{$comment->id}})"
             class="hidden items-center text-sm text-gray-500 hover:underline dark:text-gray-400">
             <svg aria-hidden="true" class="mr-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"></path></svg>
             Hide Replies
         </button>
+        
         <br>
-        <!-- Reply form start -->
-        <form method="POST" action="/confessions/{{$confessions->id}}/reply" class="hidden" id="reply-form">
-            @csrf
-            <input type="hidden" value="{{$comment->id}}" name="comment_parent_id">
-            <textarea placeholder="Reply to comment" rows="4" name="reply"></textarea>
-            <button type="submit">Submit</button>
-            <button type="button" onclick="hide()">Cancel</button>
-        </form>
-        <!-- Reply form end -->
-    </div>  
+
+    </div>
+
+            <!-- Reply form start -->
+            <form method="POST" action="/confessions/{{$confessions->id}}/reply" class="hidden" id="reply-form-{{$comment->id}}">
+                @csrf
+                <input type="hidden" value="{{$comment->id}}" name="comment_parent_id">
+                <label for="reply" class="sr-only">Your message</label>
+                <div class="flex items-center px-3 py-2 rounded-lg">
+                    <textarea id="reply" name="reply" rows="1" class="block mx-4 p-2.5 w-full text-sm text-gray-900 bg-white rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Your message..."></textarea>
+                        <button type="submit" class="inline-flex justify-center p-2 text-blue-600 rounded-full cursor-pointer hover:bg-blue-100 dark:text-blue-500 dark:hover:bg-gray-600">
+                        <svg aria-hidden="true" class="w-6 h-6 rotate-90" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"></path></svg>
+                        <span class="sr-only">Send message</span>
+                    </button>
+                </div>
+            </button>
+            </form>
+
+
+
+            <!-- Reply form end -->
 
     
 
 </article>
-<div id="replies" name="replies-{{$comment->id}}" class="hidden">
+<div id="replies-{{$comment->id}}" name="replies" class="hidden">
 @forelse ($comment->replies as $reply)
 
     @include('includes.replies')
 
     
 @empty
-    
+    @include('includes.noreplyComponent')
 @endforelse
 </div>
