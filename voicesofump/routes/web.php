@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ConfessionPostController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\PetitionPostController;
@@ -56,3 +57,6 @@ Route::resource('petitions', PetitionPostController::class)->parameters([
 
 //others
 Route::get('/logout', [LogoutController::class, 'store']);
+
+//comment
+Route::post('confessions/{confessionPost}/comment', [CommentController::class, 'store']);
