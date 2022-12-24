@@ -16,7 +16,7 @@ class ReplyController extends Controller
             ]);
 
             if($validator->fails()){
-                return redirect()->back()->with('message', 'Comment is neeed');
+                return redirect()->back()->with('message', 'noreply');
             }
 
             $post = $request->comment_parent_id;
@@ -27,13 +27,13 @@ class ReplyController extends Controller
                     'user_id' => Auth::user()->id,
                     'reply' => $request->reply
                 ]);
-                return redirect()->back()->with('message', 'success ' );
+                return redirect()->back()->with('message', 'successreply' );
             }else{
-                return redirect()->back()->with('message', 'error post ' );
+                return redirect()->back()->with('message', 'errorreply' );
 
             }
         }else{
-            return redirect()->back()->with('message', 'login first' );
+            return redirect()->back()->with('message', 'autherrorreply' );
         }
     }
 }

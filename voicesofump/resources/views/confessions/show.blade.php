@@ -19,14 +19,13 @@
       </div>
     </article>
 
+    @include('includes.commentSection')
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+    <script src="https://unpkg.com/flowbite@1.5.5/dist/flowbite.js"></script>
+    <script src="{{ asset('/js.js') }} "></script>
   </body>
   @include('includes.footer')
 </html>
-
-
-
-
-
 
 @endguest
 
@@ -67,6 +66,7 @@
       
   </div>
 @include('includes.commentSection')
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script src="https://unpkg.com/flowbite@1.5.5/dist/flowbite.js"></script>
 <script src="{{ asset('/js.js') }} "></script>
 </x-app-layout>

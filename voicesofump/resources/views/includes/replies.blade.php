@@ -26,10 +26,7 @@
                 <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
                     aria-labelledby="dropdownMenuIconHorizontalButton">
                     @if (Auth::id() == $reply->user_id)
-                    <li>
-                        <a href="#"
-                            class="block py-2 px-4 hover:bg-gray-100 ">Edit</a>
-                    </li>
+
                     <li>
                         <a href="#"
                             class="block py-2 px-4 hover:bg-gray-100 ">Remove</a>

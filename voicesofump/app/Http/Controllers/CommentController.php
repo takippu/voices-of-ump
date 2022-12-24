@@ -17,7 +17,7 @@ class CommentController extends Controller
             ]);
 
             if($validator->fails()){
-                return redirect()->back()->with('message', 'Comment is neeed');
+                return redirect()->back()->with('message', 'nocomment');
             }
 
             $post = $request->postID;
@@ -28,13 +28,13 @@ class CommentController extends Controller
                     'user_id' => Auth::user()->id,
                     'comment' => $request->comment
                 ]);
-                return redirect()->back()->with('message', 'success ' );
+                return redirect()->back()->with('message', 'success' );
             }else{
-                return redirect()->back()->with('message', 'error post ' );
+                return redirect()->back()->with('message', 'errorpost' );
 
             }
         }else{
-            return redirect()->back()->with('message', 'login first' );
+            return redirect()->back()->with('message', 'autherror' );
         }
     }
 }
