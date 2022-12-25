@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ConfessionPostController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\PetitionPostController;
 use App\Http\Controllers\ReplyController;
@@ -64,3 +65,8 @@ Route::get('/logout', [LogoutController::class, 'store']);
 Route::post('confessions/{confessionPost}/comment', [CommentController::class, 'store']);
 Route::delete('confessions/{confessionPost}/comment/{comment}/delete', [CommentController::class, 'destroy'])->name('comment.destroy'); //delete post
 Route::post('confessions/{confessionPost}/reply', [ReplyController::class, 'store']);
+
+//likes
+Route::post('confessions/{confessionPost}/likes', [LikeController::class, 'store']);
+Route::delete('confessions/{confessionPost}/dislikes', [LikeController::class, 'destroy']); //dislikes
+

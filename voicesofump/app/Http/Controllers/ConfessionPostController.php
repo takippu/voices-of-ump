@@ -6,6 +6,7 @@ use App\Models\ConfessionPost;
 use App\Models\PetitionPost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ConfessionPostController extends Controller
 {
@@ -138,12 +139,26 @@ class ConfessionPostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show(ConfessionPost $confessionPost)
-    {
-        $confessionPost->addViews();
+    {   
+        $confessionPost->addViews();//add views
+         //check if user already like or not
+        $user = DB::table('likes')->where('user_id', Auth::user()->id)->first();
+        $post = DB::table('likes')->where('post_id', $confessionPost->id)->first();
+        if ($user && $post){
+            return view('confessions.show', [
+                'confessions' => $confessionPost,
+                'message' => 'dahlike', //if already like return message
+            ]);
+        }else{
+            return view('confessions.show', [
+                'confessions' => $confessionPost,
+                'message' => 'belumlike', //if not yet like return message
+            ]);
+        }
+        
+       
 
-        return view('confessions.show', [
-            'confessions' => $confessionPost,
-        ]);
+
     }
 
     /**
