@@ -21,6 +21,7 @@ return new class extends Migration
             $table->text('content'); //post content
             $table->text('user_id'); //post user id
             $table->mediumText('image_path')->nullable();
+            $table->bigInteger('views')->unsigned()->default(0);
             //
 
             $table->timestamps();

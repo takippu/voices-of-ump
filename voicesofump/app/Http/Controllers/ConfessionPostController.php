@@ -139,7 +139,8 @@ class ConfessionPostController extends Controller
      */
     public function show(ConfessionPost $confessionPost)
     {
-        //
+        $confessionPost->addViews();
+
         return view('confessions.show', [
             'confessions' => $confessionPost,
         ]);
@@ -199,4 +200,5 @@ class ConfessionPostController extends Controller
         
         return $request->image->move($newImageName);
     }
+
 }

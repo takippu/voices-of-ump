@@ -17,4 +17,9 @@ class ConfessionPost extends Model
     public function comments(){
         return $this->hasMany(Comment::class, 'post_id', 'id');
     }
+
+    public function addViews(){ //to add view (get into controller)
+        $this->views++;
+        return $this->save();
+    }
 }
