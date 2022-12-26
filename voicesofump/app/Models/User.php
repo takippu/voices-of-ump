@@ -60,7 +60,9 @@ class User extends Authenticatable
     ];
 
     public function confessionPost(){
+
         return $this->hasMany(ConfessionPost::class);
+
     }
 }
 

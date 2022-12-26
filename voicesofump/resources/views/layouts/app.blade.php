@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="min-h-screen">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,7 +20,7 @@
         @vite('resources/css/app.css')
         @livewireStyles
     </head>
-    <body class="font-sans antialiased">
+    <body class="font-sans antialiased" class="flex flex-col min-h-screen">
         <x-jet-banner /> 
 
         <div class="">
@@ -45,6 +45,7 @@
         @stack('modals')
 
         @livewireScripts
+        @include('includes.footer')
     </body>
-    @include('includes.footer')
+   
 </html>

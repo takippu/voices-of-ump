@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ConfessionPostController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\PetitionPostController;
@@ -73,4 +74,6 @@ Route::post('confessions/{confessionPost}/likes', [LikeController::class, 'store
 Route::delete('confessions/{confessionPost}/dislikes/{dislikes}', [LikeController::class, 'destroy']); //dislikes
 
 //dashboard
-
+Route::resource('user/dashboard', DashboardController::class)->parameters([
+    'dashboard' => 'dashboard'
+]);

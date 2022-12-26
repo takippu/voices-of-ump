@@ -1,5 +1,4 @@
-<footer class=" py-8 bg-blue-600 mt-auto
-">
+<footer class="py-8 bg-blue-600 mt-auto">
     <div class="container flex flex-col md:flex-row items-center">
         <div class="flex flex-1 flex-wrap items-center justify-center md:justify-start gap-12">
             <img src="{{ asset('assets/img/logo.png')}}" alt="logo" width="200" height="200">
