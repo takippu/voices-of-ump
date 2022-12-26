@@ -36,4 +36,12 @@ class ReplyController extends Controller
             return redirect()->back()->with('message', 'autherrorreply' );
         }
     }
+    public function destroy($post,$reply)
+    {
+        $reply = Reply::find($reply);
+        $reply->delete();
+        return redirect()->back()
+        ->with('success-delete', 'delete successfully');
+
+    }
 }

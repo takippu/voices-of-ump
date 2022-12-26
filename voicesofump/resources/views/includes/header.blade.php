@@ -16,30 +16,53 @@
             <!--<button type="button" class="bg-blue-700 font-semibold  text-white rounded-md px-5 py-3"">Register</button> -->
         </ul>
         @endguest
+
         @auth
-        
+        @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
+        <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script> <!-- if profile photo is enabled-->
+        <button id="dropdownDefault" data-dropdown-toggle="dropdown" class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
+            <img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
+        </button>
+                <!-- Dropdown menu -->
+                <div id="dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-white">
+                    <ul class="py-1 text-sm text-black dark:text-black" aria-labelledby="dropdownDefault">
+                    <li>
+                            <a href="./user/profile" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-200 dark:hover:text-black">Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="./user/profile" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-200 dark:hover:text-black">Profile</a>
+                    </li>
+                    <li> 
+                        <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        
+                        
+                        <a href="{{ route('logout') }}" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-200 dark:hover:text-black" @click.prevent="$root.submit();">Log out</a>
+                        </form>
+                    </li>
+                    </ul>
+                </div>
+        @else <!-- if profile photo isn't enabled-->
         <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script>
+        <button id="dropdownDefault" data-dropdown-toggle="dropdown" class="text-gray bg-white hover:bg-gray-100 focus:ring-1 focus:outline-none focus:ring-white font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-gray dark:hover:bg-gray-200 dark:focus:ring-gray-300" type="button">{{auth()->user()->name}}<svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
+                <!-- Dropdown menu -->
+                <div id="dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-white">
+                    <ul class="py-1 text-sm text-black dark:text-black" aria-labelledby="dropdownDefault">
+                    <li>
+                        <a href="./user/profile" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-200 dark:hover:text-black">Profile</a>
+                    </li>
+                    <li> 
+                        <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        
+                        
+                        <a href="{{ route('logout') }}" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-200 dark:hover:text-black" @click.prevent="$root.submit();">Log out</a>
+                        </form>
+                    </li>
+                    </ul>
+                </div>
+        @endif
 
-
-          
-       
-<button id="dropdownDefault" data-dropdown-toggle="dropdown" class="text-gray bg-white hover:bg-gray-100 focus:ring-1 focus:outline-none focus:ring-white font-medium rounded-lg text-sm px-4 py-2.5 text-center inline-flex items-center dark:bg-gray dark:hover:bg-gray-200 dark:focus:ring-gray-300" type="button">{{auth()->user()->name}}<svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></button>
-<!-- Dropdown menu -->
-<div id="dropdown" class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-white">
-    <ul class="py-1 text-sm text-black dark:text-black" aria-labelledby="dropdownDefault">
-      <li>
-        <a href="./user/profile" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-200 dark:hover:text-black">Profile</a>
-      </li>
-      <li> 
-        <form method="POST" action="{{ route('logout') }}">
-        @csrf
-        
-        
-        <a href="{{ route('logout') }}" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-200 dark:hover:text-black" @click.prevent="$root.submit();">Log out</a>
-        </form>
-    </li>
-    </ul>
-</div>
 
         @endauth
         <div class="flex sm:hidden flex-1 justify-end">

@@ -9,7 +9,7 @@
                 <p class="text-sm text-gray-600 dark:text-gray-400"><time pubdate datetime="2022-02-08"
                         title="February 8th, 2022">{{$reply->created_at->diffForHumans()}}</time></p>
             </div>
-            <button id="dropdownComment1Button" data-dropdown-toggle="dropdownComment1"
+            <button id="dropdownComment{{$reply->id}}Button" data-dropdown-toggle="dropdownComment{{$reply->id}}"
                 class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-400 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50 "
                 type="button">
                 <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
@@ -18,18 +18,21 @@
                         d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z">
                     </path>
                 </svg>
-                <span class="sr-only">Comment settings</span>
+                <span class="sr-only">Reply settings</span>
             </button>
             <!-- Dropdown menu -->
-            <div id="dropdownComment1"
+            <div id="dropdownComment{{$reply->id}}"
                 class="hidden z-10 w-36 bg-white rounded divide-y divide-gray-100 shadow ">
                 <ul class="py-1 text-sm text-gray-700 dark:text-gray-200"
                     aria-labelledby="dropdownMenuIconHorizontalButton">
                     @if (Auth::id() == $reply->user_id)
 
                     <li>
-                        <a href="#"
-                            class="block py-2 px-4 hover:bg-gray-100 ">Remove</a>
+                        <form action="{{route('reply.destroy', [$confessions->id, $reply->id])}}" method="POST">
+                            @csrf
+                            @method('DELETE')    
+                          <button type="submit" class="block py-2 px-4 hover:bg-gray-100 ">Remove</button>
+                     </form>
                     </li>
                     @else
                     <li>

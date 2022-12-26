@@ -13,6 +13,8 @@
 </html>
 @endguest
 {{-- --}}
+
+
 @auth
 <x-app-layout>
 

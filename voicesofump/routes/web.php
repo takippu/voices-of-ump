@@ -65,8 +65,12 @@ Route::get('/logout', [LogoutController::class, 'store']);
 Route::post('confessions/{confessionPost}/comment', [CommentController::class, 'store']);
 Route::delete('confessions/{confessionPost}/comment/{comment}/delete', [CommentController::class, 'destroy'])->name('comment.destroy'); //delete post
 Route::post('confessions/{confessionPost}/reply', [ReplyController::class, 'store']);
+Route::delete('confessions/{confessionPost}/reply/{reply}/delete', [ReplyController::class, 'destroy'])->name('reply.destroy'); //delete post
+
 
 //likes
 Route::post('confessions/{confessionPost}/likes', [LikeController::class, 'store']);
 Route::delete('confessions/{confessionPost}/dislikes/{dislikes}', [LikeController::class, 'destroy']); //dislikes
+
+//dashboard
 
