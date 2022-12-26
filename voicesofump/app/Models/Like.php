@@ -14,7 +14,7 @@ class Like extends Model
         'likes',
     ];
     public function confessionPost(){
-        return $this->belongsTo(ConfessionPost::class, 'post_id', 'id');
+        return $this->belongsTo(ConfessionPost::class, 'post_id');
 
     }
     public function user(){

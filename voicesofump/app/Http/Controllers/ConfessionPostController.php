@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\ConfessionPost;
+use App\Models\Like;
 use App\Models\PetitionPost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -140,6 +141,7 @@ class ConfessionPostController extends Controller
      */
     public function show(ConfessionPost $confessionPost)
     {   
+
         $confessionPost->addViews();//add views
          //check if user already like or not
         $user = DB::table('likes')->where('user_id', Auth::user()->id)->first();

@@ -59,7 +59,7 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function confessionpost(){
+    public function confessionPost(){
         return $this->hasMany(ConfessionPost::class);
     }
 }

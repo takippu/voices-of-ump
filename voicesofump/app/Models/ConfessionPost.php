@@ -18,7 +18,7 @@ class ConfessionPost extends Model
         return $this->hasMany(Comment::class, 'post_id', 'id');
     }
     public function likes(){
-        return $this->hasMany(Like::class, 'post_id', 'id');
+        return $this->hasMany(Like::class, 'post_id');
     }
 
     public function addViews(){ //to add view (get into controller)

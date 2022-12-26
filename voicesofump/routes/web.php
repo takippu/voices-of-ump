@@ -68,5 +68,5 @@ Route::post('confessions/{confessionPost}/reply', [ReplyController::class, 'stor
 
 //likes
 Route::post('confessions/{confessionPost}/likes', [LikeController::class, 'store']);
-Route::delete('confessions/{confessionPost}/dislikes', [LikeController::class, 'destroy']); //dislikes
+Route::delete('confessions/{confessionPost}/dislikes/{dislikes}', [LikeController::class, 'destroy']); //dislikes
 
