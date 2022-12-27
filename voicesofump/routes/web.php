@@ -7,6 +7,7 @@ use App\Http\Controllers\LikeController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\PetitionPostController;
 use App\Http\Controllers\ReplyController;
+use App\Http\Controllers\SignatureController;
 use App\Models\Comment;
 use App\Models\ConfessionPost;
 use Illuminate\Support\Facades\Route;
@@ -78,6 +79,9 @@ Route::get('user/dashboard/posts', [DashboardController::class, 'managePosts'])-
 Route::resource('user/dashboard', DashboardController::class)->parameters([ //RESOURCE ROUTES MUST BE ALWAYS THE LAST
     'dashboard' => 'dashboard',
 ]);
+
+//signatures
+Route::post('petitions/{petitionPost}/signs', [SignatureController::class, 'store']);
 
 
 

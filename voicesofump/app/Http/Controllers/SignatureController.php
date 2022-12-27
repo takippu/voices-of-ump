@@ -11,7 +11,7 @@ class SignatureController extends Controller
     public function store(Request $request){
         if(Auth::check()){
 
-            $post = $request->postID;
+            $post = $request->post_id;
             if($post){
 
                 Signature::create([

@@ -91,6 +91,7 @@ class PetitionPostController extends Controller
     public function show(PetitionPost $petitionPost)
     {
         $percent = $this->showProgressBar($petitionPost->signs->count(),$petitionPost->signature_goals);
+        $percent_rounded = number_format((float)$percent, 1, '.' ,'');
         $petitionPost->addViews();//add views
         //check if user sign or yet 
         $user = DB::table('signatures')->where('user_id', Auth::user()->id)->first();
@@ -99,13 +100,13 @@ class PetitionPostController extends Controller
             return view('petitions.show', [
                 'petitions' => $petitionPost,
                 'message' => 'sudahsign',
-                'percentage' => $percent,
+                'percentage' => $percent_rounded,
             ]);
         }else{
             return view('petitions.show', [
                 'petitions' => $petitionPost,
                 'message' => 'belumsign',
-                'percentage' => $percent,
+                'percentage' => $percent_rounded,
             ]);
         }
     }
