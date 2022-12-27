@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\PetitionPost;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class PetitionPostController extends Controller
 {
@@ -89,11 +90,24 @@ class PetitionPostController extends Controller
      */
     public function show(PetitionPost $petitionPost)
     {
-        
+        $percent = $this->showProgressBar($petitionPost->signs->count(),$petitionPost->signature_goals);
         $petitionPost->addViews();//add views
-        return view('petitions.show', [
-            'petitions' => $petitionPost,
-        ]);
+        //check if user sign or yet 
+        $user = DB::table('signatures')->where('user_id', Auth::user()->id)->first();
+        $post = DB::table('signatures')->where('post_id', $petitionPost->id)->first();
+        if($user && $post){
+            return view('petitions.show', [
+                'petitions' => $petitionPost,
+                'message' => 'sudahsign',
+                'percentage' => $percent,
+            ]);
+        }else{
+            return view('petitions.show', [
+                'petitions' => $petitionPost,
+                'message' => 'belumsign',
+                'percentage' => $percent,
+            ]);
+        }
     }
 
     /**
@@ -138,4 +152,10 @@ class PetitionPostController extends Controller
         return $request->image->move($newImageName);
     }
 
+    public function showProgressBar($x,$y)
+    {
+        $percentage = ($x / $y) * 100;
+
+         return $percentage;
+    }
 }

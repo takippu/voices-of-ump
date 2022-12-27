@@ -192,13 +192,19 @@
 
             <div class="w-full bg-white shadow flex flex-col my-4 p-6">
                 <p class="text-xl font-semibold pb-5">Signatures</p>
-                <p class="pb-2"><b>307</b> of 1400 has signed! </p>
+                <p class="pb-2"><b>{{ucfirst($petitions->signs->count())}}</b> of {{$petitions->signature_goals}} has signed! </p>
                 <!-- progress bar -->
-                
-                <div class="w-full bg-gray-200 rounded-full dark:bg-gray-700">
-                    <div class="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full" style="width: 45%"> 45%</div>
-                </div>
 
+                @if($percentage > 10){
+                    <div class="w-full bg-gray-200 rounded-full dark:bg-gray-700">
+                        <div id="progress-bar" class="bg-blue-600 text-xs font-medium text-blue-200 text-center p-0.5 leading-none rounded-full" style="width: {{$percentage}}%"> {{$percentage}}%</div>
+                    </div>
+                @else
+                    <div class="w-full bg-gray-200 rounded-full dark:bg-gray-700">
+                        <div id="progress-bar" class="bg-blue-600 text-xs font-medium text-black text-center p-0.5 leading-none rounded-full" style="width: {{$percentage}}%"> {{$percentage}}%</div>
+                    </div>
+                @endif
+            
                 <a href="#" class="w-full bg-blue-800 text-white font-bold text-sm uppercase rounded hover:bg-blue-700 flex items-center justify-center px-2 py-3 mt-4">
                     Share
                 </a>
@@ -312,7 +318,6 @@
             }
         }
     </script>
-
 </body>
     @include('includes.footer')
 </html>
