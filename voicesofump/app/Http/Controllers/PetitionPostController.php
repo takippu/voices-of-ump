@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\PetitionPost;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PetitionPostController extends Controller
 {
@@ -38,7 +39,46 @@ class PetitionPostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //check auth or guest
+        if(Auth::check()){
+            if($request->hasFile('image')){
+
+                //security purpose
+                $request->validate([
+                    'image' => ['required', 'mimes:jpg,jpeg,png']
+                ]);
+    
+                PetitionPost::create([
+                    'title' => $request->title,
+                    'content' => $request->content,
+                    'signature_goals' => $request->goals,
+                    'user_id' => auth()->id(),
+                    'image_path' => $this->storeImage($request),
+                ]);
+    
+    
+    
+            }else{
+                PetitionPost::create([
+                    'title' => $request->title,
+                    'content' => $request->content,
+                    'signature_goals' => $request->goals,
+                    'user_id' => auth()->id(),
+                    
+                ]);
+            }
+            
+    
+                
+         
+    
+            
+        }else{
+            return redirect()->back()->with('message', 'autherror');
+        }
+
+        return redirect()->back()->with('message', 'done');
+
     }
 
     /**
@@ -87,4 +127,13 @@ class PetitionPostController extends Controller
     {
         //
     }
+    
+    private function storeImage($request){
+
+        $newImageName = uniqid() . '-' . $request->title . '.' . 
+        $request->image->extension();
+        
+        return $request->image->move($newImageName);
+    }
+
 }

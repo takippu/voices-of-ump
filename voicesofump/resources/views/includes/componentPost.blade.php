@@ -16,7 +16,7 @@
              <img class="object-fill w-full rounded-lg rounded-b-none md:h-56" src="{{asset('assets/img-posts/'.rand(1,10).'.png')}}" alt="" width="10" height="10">
 
              @else
-             <img class="object-fill w-full rounded-lg rounded-b-none md:h-56" src="{{$post->image_path}}" alt="" width="10" height="10">
+             <img class="object-fill w-full rounded-lg rounded-b-none md:h-56" src="{{asset('/'.$post->image_path)}}" alt="" width="10" height="10">
              @endif
             
           </div>

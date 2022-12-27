@@ -22,6 +22,8 @@ class PetitionPostFactory extends Factory
             'title' => $this->faker->sentence,
             'content' => $this->faker->paragraph(30),
             'user_id' => User::factory(),
+            'signature_goals' =>$this->faker->unique()->numberBetween(1, 500),
+            
         ];
     }
 }
