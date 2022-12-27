@@ -14,7 +14,10 @@ class PetitionPost extends Model
         return $this->belongsTo(User::class);
     }
 
-
+    public function likes(){
+        return $this->hasMany(Like::class, 'post_id');
+    }
+    
     public function addViews(){ //to add view (get into controller)
         $this->views++;
         return $this->save();
