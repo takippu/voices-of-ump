@@ -1,16 +1,5 @@
 @guest
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        @include('includes.header')
-        @include('includes.head')
-    </head>
-
-<body>
-  
-</body>
-@include('includes.footer')
-</html>
+not allowed
 @endguest
 
 

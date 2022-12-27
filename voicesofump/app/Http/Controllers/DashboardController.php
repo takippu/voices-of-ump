@@ -31,6 +31,16 @@ class DashboardController extends Controller
         ]);
     }
 
+    public function managePosts(){
+        $getPostfromUser = ConfessionPost::all();
+        $getPetitionfromUser = PetitionPost::all();
+        return view('dashboard.posts', [
+            'confessions_from_user' => $getPostfromUser,
+            'petitions_from_user' => $getPetitionfromUser,
+        ]);
+
+    }
+
     /**
      * Show the form for creating a new resource.
      *

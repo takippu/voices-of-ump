@@ -205,8 +205,8 @@ class ConfessionPostController extends Controller
     {
         //
         $confessionPost->delete();
-        return redirect()->route('confessions.index')
-        ->with('success-delete', 'delete successfully');
+        return redirect()->back()
+        ->with('success-delete', 'deletesuccess');
 
     }
 
