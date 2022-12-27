@@ -22,6 +22,7 @@ return new class extends Migration
             $table->text('user_id'); //post user id
             $table->integer('signature_goals')->nullable();
             $table->mediumText('image_path')->nullable();
+            $table->bigInteger('views')->unsigned()->default(0);
             //
 
             $table->timestamps();

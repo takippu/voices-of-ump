@@ -89,6 +89,8 @@ class PetitionPostController extends Controller
      */
     public function show(PetitionPost $petitionPost)
     {
+        
+        $petitionPost->addViews();//add views
         return view('petitions.show', [
             'petitions' => $petitionPost,
         ]);

@@ -13,4 +13,10 @@ class PetitionPost extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+
+    public function addViews(){ //to add view (get into controller)
+        $this->views++;
+        return $this->save();
+    }
 }
