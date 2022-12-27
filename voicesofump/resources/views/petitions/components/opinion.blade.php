@@ -41,6 +41,11 @@
         </div>
         -->
     </footer>
-    <p class="text-gray-500 dark:text-gray-400">{{ucfirst($sign->opinion)}}</p>
+    @if($sign->opinion == null)
+         <p class="text-gray-500 dark:text-gray-400">This user hasn't leave their opinion...</p>
+    @else
+         <p class="text-gray-500 dark:text-gray-400">{{ucfirst($sign->opinion)}}</p>
+    @endif
+    
 </div>
 </article>    
