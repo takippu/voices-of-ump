@@ -12,11 +12,13 @@ class SignatureController extends Controller
         if(Auth::check()){
 
             $post = $request->post_id;
+            $opinion = $request->message;
             if($post){
 
                 Signature::create([
                     'post_id' => $post,
                     'user_id' => Auth::user()->id,
+                    'opinion' => $opinion,
                 ]);
                 return redirect()->back()->with('message', 'signed' );
             }else{

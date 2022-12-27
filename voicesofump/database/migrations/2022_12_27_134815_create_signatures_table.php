@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->integer('post_id');
             $table->integer('user_id');
+            $table->text('opinion')->nullable();
             $table->timestamps();
         });
     }
