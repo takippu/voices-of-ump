@@ -17,8 +17,8 @@
 
 @auth
 <x-app-layout>
-
-  @include('includes.componentPost')
-
+  <section class="flex flex-row flex-wrap mx-auto">
+    @include('includes.componentPost')
+  </section>
 </x-app-layout>
 @endauth
