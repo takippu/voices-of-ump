@@ -1,5 +1,5 @@
-<article class="p-6 mb-6 text-base bg-white rounded-lg dark:bg-gray-900">
-    <footer class="flex justify-between items-center mb-2">
+<article class="p-6 mb-6 text-base bg-white rounded-lg dark:bg-gray-900 ">
+    <footer class="flex justify-between items-center mb-2 ">
         <div class="flex items-center">
             <p class="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white"><img
                     class="mr-2 w-6 h-6 rounded-full"
@@ -46,6 +46,5 @@
     @else
          <p class="text-gray-500 dark:text-gray-400">{{$sign->opinions->id}}</p>
     @endif
-    
-</div>
-</article>    
+</article>   
+<div class="w-auto border-b-2 border-gray-200"></div> 

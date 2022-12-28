@@ -275,15 +275,14 @@
         
         </aside>
         <!-- comments -->
-        <div class="w-full bg-white shadow flex flex-col my-4 p-6">
+        <div class="w-full bg-white flex flex-col my-4 p-6">
         <p class="text-xl font-semibold pb-5">What others think about this?</p>
         @forelse ($petitions->signs as $sign)
-        
             @include('petitions.components.opinion')
         @empty
             empty bruh
         @endforelse
-        
+        </div>
 
     </div>
 
