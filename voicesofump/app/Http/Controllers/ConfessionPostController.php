@@ -143,20 +143,30 @@ class ConfessionPostController extends Controller
     {   
 
         $confessionPost->addViews();//add views
-         //check if user already like or not
-        $user = DB::table('likes')->where('user_id', Auth::user()->id)->first();
-        $post = DB::table('likes')->where('post_id', $confessionPost->id)->first();
-        if ($user && $post){
-            return view('confessions.show', [
-                'confessions' => $confessionPost,
-                'message' => 'dahlike', //if already like return message
-            ]);
-        }else{
-            return view('confessions.show', [
-                'confessions' => $confessionPost,
-                'message' => 'belumlike', //if not yet like return message
-            ]);
+
+        if(Auth::check()){ 
+                //check if user already like or not
+                $user = DB::table('likes')->where('user_id', Auth::user()->id)->first();
+                $post = DB::table('likes')->where('post_id', $confessionPost->id)->first();
+                if ($user && $post){
+                    return view('confessions.show', [
+                        'confessions' => $confessionPost,
+                        'message' => 'dahlike', //if already like return message
+                    ]);
+                }else{
+                    return view('confessions.show', [
+                        'confessions' => $confessionPost,
+                        'message' => 'belumlike', //if not yet like return message
+                    ]);
+                }
+        }else{ //guest
+                return view('confessions.show', [
+                    'confessions' => $confessionPost,
+                    'status'    => 'guest', //send some message
+                ]);
+
         }
+
         
        
 

@@ -19,7 +19,7 @@
       </div>
     </article>
 
-    @include('includes.commentSection')
+    @include('confessions.components.commentSection')
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script src="https://unpkg.com/flowbite@1.5.5/dist/flowbite.js"></script>
     <script src="{{ asset('/js.js') }} "></script>
@@ -99,7 +99,8 @@
   </div>
 
 
-@include('includes.commentSection')
+@include('confessions.components.commentSection')
+
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script src="https://unpkg.com/flowbite@1.5.5/dist/flowbite.js"></script>
 <script src="{{ asset('/js.js') }} "></script>

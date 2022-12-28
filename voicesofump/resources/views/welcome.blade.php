@@ -3,7 +3,7 @@
 <head>
     @include('includes.head')
 </head>
-<body>
+<body class="overflow-x-hidden">
     @include('includes.header')
 
     <!-- Hero -->
@@ -15,7 +15,7 @@
                     <h1 class="text-4xl font-bold tracking-tight sm:text-center sm:text-6xl">"Let your voice be heard."</h1>
                     <p class="mt-6 text-lg leading-8 text-gray-600 sm:text-center">Don't be silent. Express yourself. Let yourself be heard.</p>
                     <div class="mt-8 flex gap-x-4 sm:justify-center">
-                      <a href="./register" class="inline-block rounded-lg bg-indigo-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-indigo-600 hover:bg-indigo-700 hover:ring-indigo-700">
+                      <a href="./register" class="inline-block rounded-lg bg-indigo-600 px-4 py-1.5 text-base font-semibold leading-7 text-white shadow-sm ring-1 ring-indigo-600 hover:bg-indigo-800 hover:ring-indigo-700">
                         Get started
                         <span class="text-indigo-200" aria-hidden="true">&rarr;</span>
                       </a>

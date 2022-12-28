@@ -12,7 +12,7 @@
         </ul>
         @guest
         <ul class="hidden sm:flex flex-1 justify-end items-center gap-1 text-black uppercase text-xs">
-            <a href=".././login"><button type="button" class="bg-slate-100 font-semibold text-black rounded-md px-7 py-3">Sign In</button></a>
+            <a href=".././login"><button type="button" class="bg-slate-100 hover:bg-gray-200 hover:text-gray-500 font-semibold text-black rounded-md px-7 py-3">Sign In</button></a>
             <!--<button type="button" class="bg-blue-700 font-semibold  text-white rounded-md px-5 py-3"">Register</button> -->
         </ul>
         @endguest
