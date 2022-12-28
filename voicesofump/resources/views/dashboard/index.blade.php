@@ -1,5 +1,5 @@
 @guest
-not allowed
+
 @endguest
 
 
