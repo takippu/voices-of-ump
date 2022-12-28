@@ -21,8 +21,13 @@ class ConfessionPostController extends Controller
         //get all post
         //$getPost = ConfessionPost::all();
         //return $getPost;
-
-        $getPost = ConfessionPost::all();
+    /**        
+     * $getPost = ConfessionPost::all();
+        return view('confessions.index', [
+            'confessions' => $getPost,
+        ]);
+     */
+        $getPost = ConfessionPost::latest()->paginate(9);
         return view('confessions.index', [
             'confessions' => $getPost,
         ]);

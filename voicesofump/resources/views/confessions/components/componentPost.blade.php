@@ -56,7 +56,7 @@
                     @empty
                     @endforelse
 				</div>
-				<div class="mt-3 flow-root"><a href="javascript:void(0)" class="float-left bg-white font-semibold py-2 px-4 border rounded shadow-md text-gray-800 cursor-default text-opacity-75">Previous</a> <a href="/page/2/" class="float-right bg-white font-semibold py-2 px-4 border rounded shadow-md text-gray-800 cursor-pointer hover:bg-gray-100">Next</a></div>
+                {{ $confessions->links('pagination::tailwind') }}
 			</div>
     </div>
     
