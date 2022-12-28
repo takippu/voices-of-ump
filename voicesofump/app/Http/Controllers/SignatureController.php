@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Opinion;
 use App\Models\Signature;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,11 +16,15 @@ class SignatureController extends Controller
             $opinion = $request->message;
             if($post){
 
-                Signature::create([
+                $signature = Signature::create([
                     'post_id' => $post,
                     'user_id' => Auth::user()->id,
-                    'opinion' => $opinion,
+
                 ]);
+                $signature_id = $signature->id;
+
+                $this->insertOpinion($post, $opinion, $signature_id);
+
                 return redirect()->back()->with('message', 'signed' );
             }else{
                 return redirect()->back()->with('message', 'failedsign' );
@@ -28,5 +33,12 @@ class SignatureController extends Controller
         }else{
             return redirect()->back()->with('message', 'autherrorsign' );
         }
+    }
+    public function insertOpinion($post,$opinion,$signature_id){
+        Opinion::create([
+            'post_id' => $post,
+            'signature_id' => $signature_id,
+            'opinion' => $opinion,
+        ]);
     }
 }

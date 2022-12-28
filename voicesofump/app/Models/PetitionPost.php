@@ -17,6 +17,9 @@ class PetitionPost extends Model
     public function signs(){
         return $this->hasMany(Signature::class, 'post_id');
     }
+    public function opinions(){
+        return $this->hasMany(Opinion::class, 'post_id');
+    }
     
     public function addViews(){ //to add view (get into controller)
         $this->views++;

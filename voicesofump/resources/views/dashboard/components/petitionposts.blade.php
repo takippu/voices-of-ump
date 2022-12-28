@@ -34,7 +34,7 @@
                                                     <path d="M13.3333 9.1665V9.17484" stroke="#52525B" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"></path>
                                                 </svg>
                                                 <p class="text-sm leading-none text-gray-600 ml-2">
-                                                    sabar
+                                                    {{$pett->opinions->count()}}
                                                 </p>
                                             </div>
                                         </td>

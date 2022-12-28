@@ -41,10 +41,10 @@
         </div>
         -->
     </footer>
-    @if($sign->opinion == null)
+    @if($sign->opinions->opinion == null)
          <p class="text-gray-500 dark:text-gray-400">This user hasn't leave their opinion...</p>
     @else
-         <p class="text-gray-500 dark:text-gray-400">{{ucfirst($sign->opinion)}}</p>
+         <p class="text-gray-500 dark:text-gray-400">{{$sign->opinions->id}}</p>
     @endif
     
 </div>

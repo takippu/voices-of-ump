@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('signatures', function (Blueprint $table) {
+        Schema::create('opinions', function (Blueprint $table) {
             $table->id();
             $table->integer('post_id');
-            $table->integer('user_id');
+            $table->integer('signature_id');
+            $table->text('opinion')->nullable();;
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('signatures');
+        Schema::dropIfExists('opinions');
     }
 };

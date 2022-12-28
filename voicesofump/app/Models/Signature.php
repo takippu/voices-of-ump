@@ -11,8 +11,6 @@ class Signature extends Model
     protected $fillable = [
         'post_id',
         'user_id',
-        'opinion',
-        
     ];
     
     public function confessionPost(){
@@ -22,5 +20,9 @@ class Signature extends Model
     public function user(){
         return $this->belongsTo(User::class, 'user_id', 'id');
 
+    }
+
+    public function opinions(){
+        return $this->hasOne(Opinion::class, 'signature_id', 'id');
     }
 }
