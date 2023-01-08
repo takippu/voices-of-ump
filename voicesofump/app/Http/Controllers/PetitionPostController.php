@@ -16,6 +16,7 @@ class PetitionPostController extends Controller
      */
     public function index()
     {
+
         $getPost = PetitionPost::all();
         return view('petitions.index', [
             'petitions' => $getPost,
@@ -114,7 +115,6 @@ class PetitionPostController extends Controller
         }else{ //guest
                 return view('petitions.show', [
                     'petitions' => $petitionPost,
-                    'message' => 'belumsign',
                     'percentage' => $percent_rounded,
                 ]);
 

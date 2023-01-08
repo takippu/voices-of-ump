@@ -7,7 +7,7 @@
     </head>
 
 <body>
-  @include('includes.componentPetition')
+  @include('petitions.components.componentPost')
 </body>
 @include('includes.footer')
 </html>
