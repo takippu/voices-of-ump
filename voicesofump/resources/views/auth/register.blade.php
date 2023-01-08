@@ -173,7 +173,12 @@
                   </span>
                 </div>
               </div>
-      
+              <input
+              type="hidden"
+              id="roles"
+              name="roles"
+              class="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
+            />
             <button
               type="submit"
               class="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white"
