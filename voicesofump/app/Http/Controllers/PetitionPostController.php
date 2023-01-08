@@ -17,7 +17,7 @@ class PetitionPostController extends Controller
     public function index()
     {
 
-        $getPost = PetitionPost::all();
+        $getPost = PetitionPost::latest()->paginate(9);;
         return view('petitions.index', [
             'petitions' => $getPost,
         ]);

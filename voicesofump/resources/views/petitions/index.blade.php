@@ -16,7 +16,7 @@
 @auth
 <x-app-layout>
 
-  @include('includes.componentPetition')
+  @include('petitions.components.componentPost')
 
 </x-app-layout>
 @endauth

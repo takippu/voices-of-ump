@@ -1,7 +1,7 @@
 <!-- used for auth() user-->
 <nav class="container mx-auto max-w-none flex items-center justify-between px-3 py-1 border border-b border-gray-200">
     <!-- Primary Navigation Menu -->
-    <div class="py-1"><a href="./"><img src="{{ asset('assets/img/logo.png')}}" alt="logo" width="200" height="200"></div>
+    <div class="py-1"><a href="{{route('welcome')}}"><img src="{{ asset('assets/img/logo.png')}}" alt="logo" width="200" height="200"></div>
         <ul class="hidden px-7 sm:flex flex-1 justify-start items-center gap-12 text-black uppercase text-xs">
             <li class="cursor-pointer inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition"><a href="#">Petitions
                 </a></li>
@@ -88,7 +88,7 @@
                             <div class="block px-4 py-2 text-xs text-gray-400">
                                 {{ __('Manage Account') }}
                             </div>
-                            <x-jet-dropdown-link href="{{ route('profile.show') }}">
+                            <x-jet-dropdown-link href="{{ route('dashboard.index') }}">
                                 {{ __('Dashboard') }}
                             </x-jet-dropdown-link>
                             <x-jet-dropdown-link href="{{ route('profile.show') }}">

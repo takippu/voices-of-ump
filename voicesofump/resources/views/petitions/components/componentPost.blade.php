@@ -61,5 +61,6 @@
 				</div>
                
 			</div>
+            {{ $petitions->links('pagination::tailwind') }}
     </div>
     
