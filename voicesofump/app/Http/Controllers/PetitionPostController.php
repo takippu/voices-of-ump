@@ -93,21 +93,31 @@ class PetitionPostController extends Controller
         $percent = $this->showProgressBar($petitionPost->signs->count(),$petitionPost->signature_goals);
         $percent_rounded = number_format((float)$percent, 1, '.' ,'');
         $petitionPost->addViews();//add views
-        //check if user sign or yet 
-        $user = DB::table('signatures')->where('user_id', Auth::user()->id)->first();
-        $post = DB::table('signatures')->where('post_id', $petitionPost->id)->first();
-        if($user && $post){
-            return view('petitions.show', [
-                'petitions' => $petitionPost,
-                'message' => 'sudahsign',
-                'percentage' => $percent_rounded,
-            ]);
-        }else{
-            return view('petitions.show', [
-                'petitions' => $petitionPost,
-                'message' => 'belumsign',
-                'percentage' => $percent_rounded,
-            ]);
+
+        if(Auth::check()){
+            //check if user sign or yet 
+            $user = DB::table('signatures')->where('user_id', Auth::user()->id)->first();
+            $post = DB::table('signatures')->where('post_id', $petitionPost->id)->first();
+            if($user && $post){
+                return view('petitions.show', [
+                    'petitions' => $petitionPost,
+                    'message' => 'sudahsign',
+                    'percentage' => $percent_rounded,
+                ]);
+            }else{
+                return view('petitions.show', [
+                    'petitions' => $petitionPost,
+                    'message' => 'belumsign',
+                    'percentage' => $percent_rounded,
+                ]);
+            }
+        }else{ //guest
+                return view('petitions.show', [
+                    'petitions' => $petitionPost,
+                    'message' => 'belumsign',
+                    'percentage' => $percent_rounded,
+                ]);
+
         }
     }
 
