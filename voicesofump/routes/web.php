@@ -75,11 +75,23 @@ Route::post('confessions/{confessionPost}/likes', [LikeController::class, 'store
 Route::delete('confessions/{confessionPost}/dislikes/{dislikes}', [LikeController::class, 'destroy']); //dislikes
 
 //dashboard
-Route::get('user/dashboard/posts', [DashboardController::class, 'managePosts'])->name('dashboard.posts')->middleware('authCheck');
-Route::resource('user/dashboard', DashboardController::class)->parameters([ //RESOURCE ROUTES MUST BE ALWAYS THE LAST
-    'dashboard' => 'dashboard',
-])->middleware('authCheck');
 
+
+Route::group(['middleware'=>'authCheck'], function(){
+    
+    Route::group(['middleware'=>'role:user'], function(){
+        Route::get('user/dashboard/posts', [DashboardController::class, 'managePosts'])->name('dashboard.posts');
+        Route::resource('user/dashboard', DashboardController::class)->parameters([ //RESOURCE ROUTES MUST BE ALWAYS THE LAST
+            'dashboard' => 'dashboard',
+        ]);
+    });
+    Route::group(['middleware'=>'role:admin'], function(){
+        Route::get('admin/dashboard/posts', [DashboardController::class, 'managePosts'])->name('dashboard.posts');
+        Route::resource('admin/dashboard', DashboardController::class)->parameters([ //RESOURCE ROUTES MUST BE ALWAYS THE LAST
+            'dashboard' => 'dashboard',
+        ]);
+    });
+});
 //signatures
 Route::post('petitions/{petitionPost}/signs', [SignatureController::class, 'store']);
 
