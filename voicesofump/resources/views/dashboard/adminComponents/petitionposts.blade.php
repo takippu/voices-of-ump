@@ -9,7 +9,7 @@
                         <div class="mt-7 overflow-x-auto">
                             <table class="w-full">
                                 <tbody>
-                                    @forelse ($petitions_from_user->where('user_id', '=', Auth::user()->id) as $pett)
+                                    @forelse ($petitions_from_user as $pett)
 
                                     <tr tabindex="0" class="focus:outline-none h-16 border border-gray-100 rounded">
                                         <td class="">

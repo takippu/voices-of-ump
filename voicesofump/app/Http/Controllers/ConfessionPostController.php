@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Middleware\onlyAdmin;
 use App\Models\ConfessionPost;
 use App\Models\Like;
 use App\Models\PetitionPost;
@@ -16,6 +17,10 @@ class ConfessionPostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function __construct() //this is to set middleware to only edit pages
+    {
+        $this->middleware('adminAllowed')->only('edit');
+    }
     public function index()
     {
         //get all post
@@ -187,6 +192,7 @@ class ConfessionPostController extends Controller
     public function edit(ConfessionPost $confessionPost)
     {
         //
+
         return view('confessions.edit', [
             'confessions' => $confessionPost,
            

@@ -4,6 +4,7 @@ namespace App\Http;
 
 use App\Http\Middleware\checkAuth;
 use App\Http\Middleware\checkRole;
+use App\Http\Middleware\onlyAdmin;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -67,5 +68,7 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'authCheck' => checkAuth::class,
         'role'=> checkRole::class,
+        'adminAllowed' => onlyAdmin::class,
+
     ];
 }

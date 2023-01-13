@@ -26,7 +26,7 @@
                                     </tr>
                                 </thead>
                                 <tbody class="divide-y divide-gray-100">
-                                    @forelse ($confessions_from_user->where('user_id', '=', Auth::user()->id) as $conf)
+                                    @forelse ($confessions_from_user as $conf)
                                     <tr tabindex="0" class="focus:outline-none h-16 border border-gray-100 rounded">
                                         <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
                                             <div class="flex items-center">
@@ -97,7 +97,7 @@
                                             <tr tabindex="0" class="focus:outline-none h-16 border border-gray-100 rounded">
                                                 <td class="">
                                                     <div class="flex items-center pl-5 w-[500px] ">
-                                                        <span class="text-base font-medium leading-none text-gray-700 mr-1 hover:text-blue-600 truncate">You've not made any petition so far...</span>
+                                                        <span class="text-base font-medium leading-none text-gray-700 mr-1 hover:text-blue-600 truncate">There is no confessions..</span>
                                                     </div>
                                                 </td>
                                             </tr>
