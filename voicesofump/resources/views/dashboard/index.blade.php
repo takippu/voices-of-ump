@@ -11,7 +11,7 @@
     @elseif(auth()->user()->roles == 1)
         @include('dashboard.components.stats')
     @else
-        {{abort(403)}}
+        {{abort(403)}} 
     @endif
   
     
