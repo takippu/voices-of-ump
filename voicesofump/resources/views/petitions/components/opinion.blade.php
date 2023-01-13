@@ -44,7 +44,8 @@
     @if($sign->opinions->opinion == null)
          <p class="text-gray-500 dark:text-gray-400">This user hasn't leave their opinion...</p>
     @else
-         <p class="text-gray-500 dark:text-gray-400">{{$sign->opinions->id}}</p>
+        <!-- <p class="text-gray-500 dark:text-gray-400">{{$sign->opinions->id}}</p> -->
+        <p class="text-gray-500 dark:text-gray-400">{{$sign->opinions->opinion}}</p> 
     @endif
 </article>   
 <div class="w-auto border-b-2 border-gray-200"></div> 

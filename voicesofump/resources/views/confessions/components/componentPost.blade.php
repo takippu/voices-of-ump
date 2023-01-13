@@ -45,7 +45,7 @@
                                 </div>
                             </div>
                             <div class="px-6 py-5">
-								<div class="font-semibold text-lg mb-2"><a class="text-gray-900 hover:text-gray-700 " href="/confessions/{{$post->id}}">{{$post->title}}</a></div>
+								<div class="font-semibold text-lg mb-2"><a class="text-gray-900 hover:text-gray-700" href="/confessions/{{$post->id}}">{{$post->title}}</a></div>
 								<p class="text-gray-700 mb-1" title="Published date">{{$post->created_at->diffForHumans()}}</p>
 								<p class="text-gray-800 truncate">{{$post->content}}</p>
 							</div>

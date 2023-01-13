@@ -30,12 +30,12 @@
                     </div>
                     <ul class="py-1 text-sm text-black dark:text-black" aria-labelledby="dropdownDefault">
                     <li>
-                            <a href="./user/dashboard" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-200 dark:hover:text-black">Dashboard</a>
+                            <a href="../user/dashboard" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-200 dark:hover:text-black">Dashboard</a>
 
                     </li>
                     
                     <li>
-                        <a href="./user/profile" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-200 dark:hover:text-black">Profile</a>
+                        <a href="../user/profile" class="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-200 dark:hover:text-black">Profile</a>
                         <div class="border-t border-gray-100"></div>
                     </li>
                     <li> 

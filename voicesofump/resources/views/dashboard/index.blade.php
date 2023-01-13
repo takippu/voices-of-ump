@@ -7,12 +7,14 @@
 @auth
 <x-app-layout>
     @if(auth()->user()->roles == 0)
-        IS ADMIN WOOHOO
+        @include('dashboard.adminComponents.stats')
+    @elseif(auth()->user()->roles == 1)
+        @include('dashboard.components.stats')
     @else
-        no admin :c
+        {{abort(403)}}
     @endif
   
-    @include('dashboard.components.stats')
+    
   
 
 </x-app-layout>

@@ -14,13 +14,13 @@ class checkRole
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return \Illuminate\Http\Response|\Illuminate\Http\RedirectResponse
      */
-    public function handle(Request $request, Closure $next, string $role)
+    public function handle(Request $request, Closure $next)
     {
-        if($role == 'user' && auth()->user()->roles != 1){
-            abort(403);
+        if(auth()->user()->roles == 1){ //isNotAdmin
+            
         }
-        if($role == 'admin' && auth()->user()->roles != 0){
-            abort(403);
+        if(auth()->user()->roles == 0){ //isAdmin
+            
         }
 
         return $next($request);

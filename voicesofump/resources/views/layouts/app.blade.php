@@ -19,6 +19,7 @@
         <!-- Styles -->
         @vite('resources/css/app.css')
         @livewireStyles
+
     </head>
     <body class="font-sans antialiased" class="flex flex-col min-h-screen">
         <x-jet-banner /> 
@@ -46,6 +47,6 @@
 
         @livewireScripts
         @include('includes.footer')
-    </body>
+            </body>
    
 </html>

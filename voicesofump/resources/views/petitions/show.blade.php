@@ -210,7 +210,7 @@
                 <p class="pb-2"><b>{{ucfirst($petitions->signs->count())}}</b> of {{$petitions->signature_goals}} has signed! </p>
                 <!-- progress bar -->
 
-                @if($percentage > 10){
+                @if($percentage > 10)
                     <div class="w-full bg-gray-200 rounded-full dark:bg-gray-700">
                         <div id="progress-bar" class="bg-blue-600 text-xs font-medium text-blue-200 text-center p-0.5 leading-none rounded-full" style="width: {{$percentage}}%"> {{$percentage}}%</div>
                     </div>

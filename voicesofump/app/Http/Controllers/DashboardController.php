@@ -6,8 +6,10 @@ use App\Models\Comment;
 use App\Models\ConfessionPost;
 use App\Models\Like;
 use App\Models\PetitionPost;
+use App\Models\Signature;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -23,11 +25,15 @@ class DashboardController extends Controller
         $getCommentfromUser = Comment::all();
         $getPetitionfromUser = PetitionPost::all();
         $getLikesfromUser = Like::all();
+        $getSignaturesFromUser = Signature::all();
+        $opinioncount = DB::table('opinions')->whereNotNull('opinion')->count();
         return view('dashboard.index', [
             'confessions_from_user' => $getPostfromUser,
             'comments_from_user' => $getCommentfromUser,
             'petitions_from_user' => $getPetitionfromUser,
             'likes_from_user' => $getLikesfromUser,
+            'signatures_from_user'=>$getSignaturesFromUser,
+            'opinionCount' => $opinioncount,
         ]);
     }
 
