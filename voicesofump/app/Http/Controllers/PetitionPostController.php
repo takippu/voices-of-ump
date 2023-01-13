@@ -152,7 +152,9 @@ class PetitionPostController extends Controller
      */
     public function destroy(PetitionPost $petitionPost)
     {
-        //
+        $petitionPost->delete();
+        return redirect()->back()
+        ->with('success-delete', 'deletesuccess');
     }
     
     private function storeImage($request){

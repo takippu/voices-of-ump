@@ -21,7 +21,7 @@
         @livewireStyles
 
     </head>
-    <body class="font-sans antialiased" class="flex flex-col min-h-screen">
+    <body class="font-sans antialiased" class="flex flex-col min-h-screen overflow-x-hidden	">
         <x-jet-banner /> 
 
         <div class="">

@@ -54,7 +54,7 @@
                                             </div>
                                             
                                         </td>
-                                        {{-- <td class="p-3 text-sm text-gray-700">
+                                         <td class="p-3 text-sm text-gray-700">
                                             <div class="inline-flex rounded-md shadow-sm" role="group">
                                             <a href="/confessions/{{$conf->id}}" class="text-sm leading-none text-green-600 py-3 px-5 bg-green-100  hover:bg-green-200 focus:outline-none">View</a>
                                             <a href="/confessions/{{$conf->id}}/edit" class="text-sm leading-none text-blue-700 py-3 px-5 bg-blue-100  hover:bg-blue-200 focus:outline-none">Edit</a>
@@ -64,8 +64,8 @@
                                                 <button type="submit" class="py-3 px-3 text-sm focus:outline-none leading-none text-red-700 bg-red-100 hover:bg-red-200 ">Delete</button>
                                             </form>
                                             </div>
-                                        </td> --}}
-                                        <td>
+                                        </td> 
+{{--                                         <td>
                                             <script src="https://unpkg.com/flowbite@1.5.4/dist/flowbite.js"></script> <!-- if profile photo is enabled-->
                                             <button id="dropdownMenuIconHorizontalButton" data-dropdown-toggle="dropdownDotsHorizontal" class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-900 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none dark:text-white focus:ring-gray-50 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-600" type="button"> 
                                                 <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z"></path></svg>
@@ -74,7 +74,7 @@
                                               <!-- Dropdown menu -->
                                               <div id="dropdownDotsHorizontal" class="z-10 hidden bg-white divide-y divide-gray-100 rounded shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
                                                   <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownMenuIconHorizontalButton">
-                                                    <li>
+                                                    <li>   
                                                       <a href="/confessions/{{$conf->id}}" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">View</a>
                                                     </li>
                                                     <li>
@@ -89,7 +89,8 @@
                                                     </li>
                                                   </ul>
                                               </div>
-                                    </tr>
+                                            </td>
+                                    </tr> --}}
 
                                     @empty
                                     <table class="w-full">
