@@ -48,6 +48,10 @@ Route::delete('confessions/{confessionPost}/delete', [ConfessionPostController::
 **/
 
     Route::put('confessions/{confessionPost}/edit', [ConfessionPostController::class, 'update']);//edit post W
+<<<<<<< Updated upstream
+=======
+    Route::get('confessions/{confessionPost}/edit', [ConfessionPostController::class, 'edit'])->middleware('can:isAdmin');
+>>>>>>> Stashed changes
     Route::delete('confessions/{confessionPost}/delete', [ConfessionPostController::class, 'destroy']); //delete post
     Route::resource('confessions', ConfessionPostController::class)->parameters([
         'confessions' => 'confessionPost'

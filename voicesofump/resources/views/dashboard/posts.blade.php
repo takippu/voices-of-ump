@@ -4,22 +4,25 @@ not allowed
 
 @auth
 <x-app-layout>
-    @if (auth()->user()->roles == 0) <!-- isAdmin -->
-        <div class="flex min-h-screen">
 
-            @include('dashboard.adminComponents.sidebar')
-            
-            @include('dashboard.adminComponents.manageposts')
-        </div>
-    @else
+    @can('isAdmin')
+    <div class="flex min-h-screen">
 
+        @include('dashboard.adminComponents.sidebar')
+        
+        @include('dashboard.adminComponents.manageposts')
+    </div>
+    <!-- isAdmin -->
+    @endcan
+
+    @can('isUser')
         <div class="flex min-h-screen">
 
             @include('dashboard.components.sidebar')
             
             @include('dashboard.components.manageposts')
         </div>
-    @endif
+    @endcan
 
 </x-app-layout>
 @endauth
