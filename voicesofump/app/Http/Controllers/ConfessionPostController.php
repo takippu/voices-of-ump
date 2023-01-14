@@ -17,10 +17,11 @@ class ConfessionPostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function __construct() //this is to set middleware to only edit pages
+   /*  public function __construct() //this is to set middleware to only edit pages
     {
         $this->middleware('adminAllowed')->only('edit');
-    }
+    } */
+    
     public function index()
     {
         //get all post
