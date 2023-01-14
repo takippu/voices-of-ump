@@ -1,11 +1,21 @@
+@guest
+  {{abort(403)}}
+@endguest
+
+@auth
 <x-app-layout>
+
   @if(Auth::user()->id == $confessions->user_id)
-      @include('confessions.components.editComponent')
+    @include('confessions.components.editComponent')
   @elseif(Auth::user()->roles == '0')
-      @include('confessions.components.editComponent')
+    @include('confessions.components.editComponent')
   @else
-      {{abort(403)}}
+    {{abort(403)}}
   @endif
    
   
 </x-app-layout>
+@endauth
+    
+
+
