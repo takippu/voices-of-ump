@@ -4,7 +4,7 @@
 @endauth
 <section class="flex flex-row flex-wrap mx-auto">
       <!-- Card Component -->
-      @forelse($petitions->reverse() as $post)
+      @forelse($petitions as $post)
       <div
         class="transition-all duration-150 flex w-full px-4 py-6 md:w-1/2 lg:w-1/3"
       >

@@ -14,7 +14,7 @@
         </div> 
         <div class="max-w-5xl mx-auto">
 				<div class="flex flex-wrap pr-10">
-                    @forelse($confessions->reverse() as $post)
+                    @forelse($confessions as $post)
 					<div class="w-full sm:w-1/2 md:w-1/3 self-stretch p-2 mb-2 rounded shadow-md hover:bg-gray-100">
 						<div class="h-full ">
                             @if (empty($post->image_path))
