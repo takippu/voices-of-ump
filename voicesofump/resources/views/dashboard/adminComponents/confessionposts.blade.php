@@ -106,7 +106,7 @@
                                     
                                 </tbody>
                             </table>
-                            {{ $confessions_from_user->links('pagination::tailwind') }}
+                            {{ $confessions_from_user->appends(['petitions'=> $petitions_from_user->currentPage()])->links('pagination::tailwind') }}
                         </div>
                     </div>
                 </div>
