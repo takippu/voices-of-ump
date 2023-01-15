@@ -106,6 +106,7 @@
                                     
                                 </tbody>
                             </table>
+                            {{ $confessions_from_user->links('pagination::tailwind') }}
                         </div>
                     </div>
                 </div>

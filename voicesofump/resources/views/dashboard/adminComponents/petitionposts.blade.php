@@ -106,6 +106,7 @@
                                     
                                 </tbody>
                             </table>
+                            {{ $petitions_from_user->links('pagination::tailwind') }}
                         </div>
                     </div>
                 </div>

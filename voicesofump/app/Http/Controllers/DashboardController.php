@@ -38,8 +38,9 @@ class DashboardController extends Controller
     }
 
     public function managePosts(){
-        $getPostfromUser = ConfessionPost::all();
-        $getPetitionfromUser = PetitionPost::all();
+
+        $getPostfromUser = ConfessionPost::latest()->paginate(9);
+        $getPetitionfromUser = PetitionPost::latest()->paginate(9);
         return view('dashboard.posts', [
             'confessions_from_user' => $getPostfromUser,
             'petitions_from_user' => $getPetitionfromUser,

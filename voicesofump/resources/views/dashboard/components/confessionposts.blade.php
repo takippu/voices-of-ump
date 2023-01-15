@@ -82,6 +82,7 @@
                                 </tbody>
                             </table>
                         </div>
+                        
                     </div>
                 </div>
                 <script src="./index.js"></script>
@@ -101,4 +102,5 @@
                         }
                         list.classList.toggle("hidden");
                     }</script>
+                    
 </div>
