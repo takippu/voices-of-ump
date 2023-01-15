@@ -49,15 +49,15 @@
                                             </div>
                                         </td>
                                         <td class="pl-4">
-                                            <a href="/confessions/{{$pett->id}}" class="text-sm leading-none text-green-600 py-3 px-5 bg-green-100 rounded hover:bg-green-200 focus:outline-none">View</a>
+                                            <a href="/petitions/{{$pett->id}}" class="text-sm leading-none text-green-600 py-3 px-5 bg-green-100 rounded hover:bg-green-200 focus:outline-none">View</a>
                                         </td>
                                         <td class="pl-4">
-                                            <a href="/confessions/{{$pett->id}}/edit" class="text-sm leading-none text-blue-700 py-3 px-5 bg-blue-100 rounded hover:bg-blue-200 focus:outline-none">Edit</a>
+                                            <a href="/petitions/{{$pett->id}}/edit" class="text-sm leading-none text-blue-700 py-3 px-5 bg-blue-100 rounded hover:bg-blue-200 focus:outline-none">Edit</a>
                                         </td>
 
                                         <td class="pl-5">
                                            
-                                            <form action="{{route('confessions.destroy', $pett->id)}}" method="POST">
+                                            <form action="{{route('petitions.destroy', $pett->id)}}" method="POST">
                                                 @csrf
                                                 @method('DELETE')    
                                                 <button type="submit" class="py-3 px-3 text-sm focus:outline-none leading-none text-red-700 bg-red-100 hover:bg-red-200 rounded">Delete</button>

@@ -214,7 +214,7 @@ class ConfessionPostController extends Controller
             'title' => $request->title,
             'content' => $request->content,
         ]);
-        return redirect('/confessions/'. $confessionPost->id);
+        return redirect()->back()->with('message','edited');
     }
 
     /**

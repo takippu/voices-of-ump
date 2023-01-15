@@ -130,6 +130,10 @@ class PetitionPostController extends Controller
     public function edit(PetitionPost $petitionPost)
     {
         //
+        return view('petitions.edit', [
+            'petitions' => $petitionPost,
+           
+        ]);
     }
 
     /**
@@ -141,7 +145,12 @@ class PetitionPostController extends Controller
      */
     public function update(Request $request, PetitionPost $petitionPost)
     {
-        //
+        $petitionPost->update([
+            'title' => $request->title,
+            'content' => $request->content,
+            'signature_goals' => $request->goals,
+        ]);
+        return redirect()->back()->with('message','edited');
     }
 
     /**
