@@ -295,7 +295,7 @@
         @forelse ($petitions->signs as $sign)
             @include('petitions.components.opinion')
         @empty
-            empty bruh
+             <p class="text-gray-500 dark:text-gray-400">Currently there is no opinion still. Be the first.</p>
         @endforelse
         </div>
 
