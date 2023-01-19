@@ -4,7 +4,7 @@
             <h2 class="mb-4 text-3xl lg:text-4xl tracking-tight font-extrabold text-gray-900 dark:text-white">Petitions</h2>
             <p class="font-light text-gray-500 sm:text-xl dark:text-gray-400">Make a difference with your signature. Your signature can create a ripple effect of change - join the petition campaign now!</p>
         <div class="pt-5">
-            <a href="{{route('confessions.create')}}" class="inline-flex items-center justify-center px-4 py-1 text-base font-medium text-center text-blue-100 border border-blue-500 rounded-lg shadow-sm cursor-pointer hover:text-white bg-gradient-to-br from-red-500 via-indigo-500 to-indigo-500">
+            <a href="{{route('petitions.create')}}" class="inline-flex items-center justify-center px-4 py-1 text-base font-medium text-center text-blue-100 border border-blue-500 rounded-lg shadow-sm cursor-pointer hover:text-white bg-gradient-to-br from-red-500 via-indigo-500 to-indigo-500">
                                   <span class="relative">Make yours now</span>
                                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-10">
                                     <path fill-rule="evenodd" d="M5 10a.75.75 0 01.75-.75h6.638L10.23 7.29a.75.75 0 111.04-1.08l3.5 3.25a.75.75 0 010 1.08l-3.5 3.25a.75.75 0 11-1.04-1.08l2.158-1.96H5.75A.75.75 0 015 10z" clip-rule="evenodd" />

@@ -35,6 +35,12 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@example.com',
             'roles' => '0',
         ]);
+        \App\Models\User::factory()->create([
+            'name' => 'Anonymous',
+            'email' => 'guest@example.com',
+            'roles' => '1',
+            'id'    => '0',
+        ]);
          //confession seeders
          PetitionPost::factory(10)->create();
         //confession seeders

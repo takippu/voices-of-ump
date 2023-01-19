@@ -1,4 +1,4 @@
-@if(session('message')=='autherror' || session('error')=='autherror')
+@if(session('message')=='autherror' || session('error')=='autherror' || session('message')=='petition_disallowed')
 <!-- Auth Failed -->
 <div class="p-4 mb-4 text-sm text-blue-700 bg-blue-100 rounded-lg dark:bg-blue-200 dark:text-blue-800" role="alert"> 
     <span class="font-medium">Not logged in!</span> Please log in to proceed.

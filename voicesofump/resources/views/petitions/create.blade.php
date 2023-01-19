@@ -136,5 +136,6 @@ module.exports = {
 
 
 @guest
-    can't must log in first
+  {{session(['message'=>'petition_disallowed'])}}
+  <script>window.location.href = "{{url('/login')}}";</script>
 @endguest
