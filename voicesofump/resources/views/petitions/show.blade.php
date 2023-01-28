@@ -191,7 +191,11 @@
             <article class="flex flex-col shadow my-4">
                 <!-- Article Image -->
                 <a href="#" class="hover:opacity-75">
+                    @if (empty($petitions->image_path))
                     <img src="https://source.unsplash.com/collection/1346951/1000x500?sig=1">
+                    @else
+                    <img src="{{asset('/'.$petitions->image_path)}}" class="object-fill h-screen w-screen">
+                    @endif
                 </a>
                 <div class="bg-white flex flex-col justify-start p-6">
                     <a href="#" class="text-blue-700 text-sm font-bold uppercase pb-4">PETITION</a>
@@ -255,7 +259,7 @@
 
                         <div class="flex items-start mb-6">
                         <div class="flex items-center h-5">
-                            <input id="anon" type="checkbox" value="" class="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800" disabled>
+                            <input id="anon" name="anon" type="checkbox" value="" class="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800" disabled>
                         </div>
                         <label for="anon" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Keep me anonymous</label>
                         </div>
@@ -284,7 +288,8 @@
 
                         <div class="flex items-start mb-6">
                         <div class="flex items-center h-5">
-                            <input id="anon" type="checkbox" value="" class="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800">
+                            <input type="hidden" name="anon" value="no">
+                            <input id="anon" name="anon" type="checkbox" value="yes" class="w-4 h-4 bg-gray-50 rounded border border-gray-300 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800">
                         </div>
                         <label for="anon" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Keep me anonymous</label>
                         </div>

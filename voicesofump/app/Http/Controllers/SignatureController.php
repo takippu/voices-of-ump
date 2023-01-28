@@ -14,6 +14,7 @@ class SignatureController extends Controller
 
             $post = $request->post_id;
             $opinion = $request->message;
+            $anon = $request->anon;
             if($post){
 
                 $signature = Signature::create([
@@ -23,7 +24,7 @@ class SignatureController extends Controller
                 ]);
                 $signature_id = $signature->id;
 
-                $this->insertOpinion($post, $opinion, $signature_id);
+                $this->insertOpinion($post, $opinion, $signature_id,$anon);
 
                 return redirect()->back()->with('message', 'signed' );
             }else{
@@ -34,11 +35,12 @@ class SignatureController extends Controller
             return redirect()->back()->with('message', 'autherrorsign' );
         }
     }
-    public function insertOpinion($post,$opinion,$signature_id){
+    public function insertOpinion($post,$opinion,$signature_id,$anon){
         Opinion::create([
             'post_id' => $post,
             'signature_id' => $signature_id,
             'opinion' => $opinion,
+            'anon' => $anon,
         ]);
     }
 }

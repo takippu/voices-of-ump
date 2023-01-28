@@ -13,6 +13,8 @@ class Opinion extends Model
         'user_id',
         'signature_id',
         'opinion',
+        'anon',
+        
     ];
     public function signature(){
         return $this->belongsTo(Signature::class, 'signature_id', 'id');
