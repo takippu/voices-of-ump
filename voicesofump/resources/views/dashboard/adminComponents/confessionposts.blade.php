@@ -26,7 +26,7 @@
                                     </tr>
                                 </thead>
                                 <tbody class="divide-y divide-gray-100">
-                                    @forelse ($confessions_from_user as $conf)
+                                    @forelse ($confessions_from_user_for_admin as $conf)
                                     <tr tabindex="0" class="focus:outline-none h-16 border border-gray-100 rounded">
                                         <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
                                             <div class="flex items-center">
@@ -106,7 +106,7 @@
                                     
                                 </tbody>
                             </table>
-                            {{ $confessions_from_user->appends(['petitions'=> $petitions_from_user->currentPage()])->links('pagination::tailwind') }}
+                            {{ $confessions_from_user_for_admin->appends(['petitions'=> $petitions_from_user_for_admin->currentPage()])->links('pagination::tailwind') }}
                         </div>
                     </div>
                 </div>

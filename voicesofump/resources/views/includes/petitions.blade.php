@@ -1,7 +1,7 @@
 <div class="p-10 grid grid-flow-row grid-cols-5 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-5">
    
    
-    @forelse($petitions as $post)
+    @forelse($petitions->reverse() as $post)
         @if($loop->iteration == 6)
             @break
         @endif

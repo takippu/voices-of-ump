@@ -41,9 +41,13 @@ class DashboardController extends Controller
 
         $getPostfromUser = ConfessionPost::oldest()->paginate(5, ['*'], 'confessions');
         $getPetitionfromUser = PetitionPost::oldest()->paginate(5, ['*'], 'petitions');
+        $getPostforUser = ConfessionPost::all();
+        $getPetitionforUser = PetitionPost::all();
         return view('dashboard.posts', [
-            'confessions_from_user' => $getPostfromUser,
-            'petitions_from_user' => $getPetitionfromUser,
+            'confessions_from_user_for_admin' => $getPostfromUser,
+            'petitions_from_user_for_admin' => $getPetitionfromUser,
+            'confessions_from_user' => $getPostforUser,
+            'petitions_from_user' => $getPetitionforUser,
         ]);
 
     }

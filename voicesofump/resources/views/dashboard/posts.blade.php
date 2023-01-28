@@ -13,6 +13,7 @@ not allowed
         @include('dashboard.adminComponents.manageposts')
     </div>
     <!-- isAdmin -->
+
     @endcan
 
     @can('isUser')
@@ -22,6 +23,7 @@ not allowed
             
             @include('dashboard.components.manageposts')
         </div>
+
     @endcan
 
 </x-app-layout>

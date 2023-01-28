@@ -77,8 +77,7 @@
       </h1>
   
       <p class="mx-auto mt-4 max-w-md text-center text-gray-500">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati sunt
-        dolores deleniti inventore quaerat mollitia?
+        Welcome back! Login now to access your petitions and stories, and continue making a difference in the world.
       </p>
       @if (session('status'))
             <div class="mb-4 font-medium text-sm text-green-600">

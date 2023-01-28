@@ -76,8 +76,7 @@
           </h1>
       
           <p class="mx-auto mt-4 max-w-md text-center text-gray-500">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati sunt
-            dolores deleniti inventore quaerat mollitia?
+            Join our community and have your voice heard. Share your stories and make a difference by signing petitions on our platform. Register now and be a part of shaping a better future.
           </p>
   
           <form action="{{ route('register') }}" method="POST" class="mt-6 mb-0 space-y-4 rounded-lg p-8 shadow-2xl">
@@ -177,6 +176,7 @@
               type="hidden"
               id="roles"
               name="roles"
+              value="1"
               class="w-full rounded-lg border-gray-200 p-4 pr-12 text-sm shadow-sm"
             />
             <button

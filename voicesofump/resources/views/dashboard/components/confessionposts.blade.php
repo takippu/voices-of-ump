@@ -75,12 +75,14 @@
                                                     <div class="flex items-center pl-5 w-[500px] ">
                                                         <span class="text-base font-medium leading-none text-gray-700 mr-1 hover:text-blue-600 truncate">You've not made any petition so far...</span>
                                                     </div>
+                                                    {{Auth::user()->id}}
                                                 </td>
                                             </tr>
                                     @endforelse
                                     
                                 </tbody>
                             </table>
+        
                         </div>
                         
                     </div>
