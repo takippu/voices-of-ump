@@ -13,6 +13,13 @@
             @endif
             <p class="text-sm text-gray-600 dark:text-gray-400"><time pubdate datetime="2022-02-08"
                     title="February 8th, 2022">{{$sign->created_at->diffForHumans()}}</time></p>
+                    <div class="ml-4">
+                        <form method="POST" action="/petitions/{{$petitions->id}}/signs-delete/{{$sign->opinions->first()->id}}">
+                            @csrf
+                            @method('DELETE')  
+                        <button type="submit" class="inline-block px-2 py-1 bg-red-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-red-700 hover:shadow-lg focus:bg-red-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-red-800 active:shadow-lg transition duration-150 ease-in-out">Delete</button>
+                        </form>
+                    </div>
         </div>
         <!-- Dropdown menu 
         <button id="dropdownComment1Button" data-dropdown-toggle="dropdownComment1"
@@ -52,6 +59,7 @@
     @else
         <!-- <p class="text-gray-500 dark:text-gray-400">{{$sign->opinions->id}}</p> -->
         <p class="text-gray-500 dark:text-gray-400">{{$sign->opinions->opinion}}</p> 
+
     @endif
 </article>   
 <div class="w-auto border-b-2 border-gray-200"></div> 

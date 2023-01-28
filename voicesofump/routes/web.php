@@ -90,6 +90,6 @@ Route::group(['middleware'=>'authCheck'], function(){
 });
 //signatures
 Route::post('petitions/{petitionPost}/signs', [SignatureController::class, 'store']);
-
+Route::delete('petitions/{petitionPost}/signs-delete/{delete}', [SignatureController::class, 'destroy']); //dislikes
 
 

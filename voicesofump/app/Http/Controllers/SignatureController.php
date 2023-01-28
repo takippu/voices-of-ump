@@ -43,4 +43,15 @@ class SignatureController extends Controller
             'anon' => $anon,
         ]);
     }
+
+    public function destroy($post,$sign)
+    {
+        $signz = Opinion::find($sign);
+        $signz->delete();
+        $signz2 = Signature::find($sign);
+        $signz2->delete();
+        return redirect()->back()
+        ->with('success-delete', 'deletedlikes');
+
+    }
 }
