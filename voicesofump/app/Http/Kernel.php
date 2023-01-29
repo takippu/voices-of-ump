@@ -2,6 +2,7 @@
 
 namespace App\Http;
 
+use App\Http\Middleware\ActiveUser;
 use App\Http\Middleware\checkAuth;
 use App\Http\Middleware\checkRole;
 use App\Http\Middleware\onlyAdmin;
@@ -69,6 +70,7 @@ class Kernel extends HttpKernel
         'authCheck' => checkAuth::class,
         'role'=> checkRole::class,
         'adminAllowed' => onlyAdmin::class,
+        'active_user' => ActiveUser::class,
 
     ];
 }

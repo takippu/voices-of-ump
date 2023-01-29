@@ -90,6 +90,12 @@
       
 
       <form action="{{ route('login') }}" method="POST" class="mt-6 mb-0 space-y-4 rounded-lg p-8 shadow-2xl">
+        @if (session('error'))
+
+        <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800" role="alert">
+          <span class="font-medium">Error!</span> {{ session('error') }}.
+          </div>
+       @endif
         @csrf
         <p class="text-lg font-medium">Sign in to your account</p>
   
