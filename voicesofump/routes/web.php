@@ -83,6 +83,8 @@ Route::delete('confessions/{confessionPost}/dislikes/{dislikes}', [LikeControlle
 Route::group(['middleware'=>'authCheck'], function(){
 
         Route::get('user/dashboard/posts', [DashboardController::class, 'managePosts'])->name('dashboard.posts');
+        Route::get('user/dashboard/create-admin', [DashboardController::class, 'createAdmin'])->name('dashboard.createAdmin');
+        Route::post('user/dashboard/create-new-admin', [DashboardController::class, 'storeAdmin'])->name('dashboard.storeAdmin');
         Route::resource('user/dashboard', DashboardController::class)->parameters([ //RESOURCE ROUTES MUST BE ALWAYS THE LAST
             'dashboard' => 'dashboard',
         ]);

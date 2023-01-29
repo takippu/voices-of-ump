@@ -52,6 +52,23 @@ class DashboardController extends Controller
 
     }
 
+    
+    public function createAdmin(){
+
+        return view('dashboard.adminComponents.create-admin');
+    }
+    public function storeAdmin(Request $request){
+
+        User::create([
+            'name' => $request->name . '(Admin)',
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'roles' => $request->roles,
+        ]);
+
+        return back()->with('message','add-success');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

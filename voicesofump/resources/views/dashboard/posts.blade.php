@@ -1,5 +1,5 @@
 @guest
-not allowed
+{{abort(403)}}
 @endguest
 
 @auth
