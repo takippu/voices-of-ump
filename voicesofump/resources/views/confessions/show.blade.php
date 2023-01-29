@@ -13,10 +13,21 @@
         <a class="ml-1 text-indigo-600 hover:underline" href="#">{{ucFirst($confessions->user->name)}}</a>
         
       </p>
+
   
       <div class="max-w-3xl mx-auto mt-4 text-justify">
         {!! $confessions->content !!}
+      @if ($confessions->likes->isEmpty())
+          
+      @else
+        <p class="text-end mt-5">
+          <span class="text-indigo-600 ">{{$confessions->likes->count()}}</span>
+          <a class="ml-1">likes this.</a>
+          
+        </p>
+        @endif
       </div>
+
     </article>
 
     @include('confessions.components.commentSection')
@@ -58,6 +69,16 @@
 
   <div class="max-w-3xl mx-auto mt-4 text-justify">
     {!! $confessions->content !!}
+    @if ($confessions->likes->isEmpty())
+          
+    @else
+      <p class="text-end mt-5">
+        <span class="text-indigo-600 ">{{$confessions->likes->count()}}</span>
+        <a class="ml-1">person likes this.</a>
+        
+      </p>
+    @endif
+    
   </div>
 </article>
 
