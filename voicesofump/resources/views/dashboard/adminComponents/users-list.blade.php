@@ -5,6 +5,15 @@
                             <p tabindex="0" class="focus:outline-none text-base sm:text-xs md:text-lg lg:text-xl font-bold leading-normal text-gray-800">All Users</p>
                         </div>
                     </div>
+                    @if(session('message')=='successban')
+                    <div class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
+                        <span class="font-medium">Success!</span> The user has been banned.
+                    </div>
+                    @elseif(session('message')=='successunban')
+                    <div class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800" role="alert">
+                        <span class="font-medium">Success!</span> The user has been unbanned.
+                    </div>
+                    @endif
                     <div class="bg-white px-4 md:px-8 xl:px-10 pb-4">
                         <div class="mt-7 overflow-auto rounded-lg shadow">
                             <table class="w-full">
@@ -71,11 +80,19 @@
                                          <td class=" text-sm text-gray-700">
                                             <div class="inline-flex rounded-md shadow-sm" role="group">
                 
+                                            @if($conf->blocked_at) 
+                                            <form action="{{route('dashboard.unbanUser', $conf->id)}}" method="POST">
+                                                @csrf
+                                                @method('PUT')    
+                                                <button type="submit" class="py-3 px-10 text-sm focus:outline-none leading-none text-green-700 bg-green-100 hover:bg-green-200 ">Unban</button>
+                                            </form>
+                                            @else
                                             <form action="{{route('dashboard.banUser', $conf->id)}}" method="POST">
                                                 @csrf
                                                 @method('PUT')    
                                                 <button type="submit" class="py-3 px-10 text-sm focus:outline-none leading-none text-red-700 bg-red-100 hover:bg-red-200 ">Ban</button>
                                             </form>
+                                            @endif
                                             </div>
                                         </td> 
 {{--                                         <td>

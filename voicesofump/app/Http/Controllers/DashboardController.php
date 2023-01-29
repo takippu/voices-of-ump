@@ -84,6 +84,17 @@ class DashboardController extends Controller
         ->get();
 
         User::where('id', $id)->update(array('blocked_at' => now()));
+
+        return back()->with('message', 'successban');
+    }
+    public function unbanUser($id){
+        $getUser = DB::table('users')
+        ->where('id', '=', $id)
+        ->get();
+
+        User::where('id', $id)->update(array('blocked_at' => NULL));
+
+        return back()->with('message', 'successunban');
     }
 
 

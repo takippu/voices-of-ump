@@ -87,6 +87,7 @@ Route::group(['middleware'=>['authCheck', 'active_user']], function(){
         Route::post('user/dashboard/create-new-admin', [DashboardController::class, 'storeAdmin'])->name('dashboard.storeAdmin');
         Route::get('user/dashboard/manage-users', [DashboardController::class, 'manageUser'])->name('dashboard.manageUsers');
         Route::put('user/dashboard/ban/{userID}', [DashboardController::class, 'banUser'])->name('dashboard.banUser');
+        Route::put('user/dashboard/unban/{userID}', [DashboardController::class, 'unbanUser'])->name('dashboard.unbanUser');
         Route::resource('user/dashboard', DashboardController::class)->parameters([ //RESOURCE ROUTES MUST BE ALWAYS THE LAST
             'dashboard' => 'dashboard',
         ]);
