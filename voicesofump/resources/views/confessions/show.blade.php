@@ -53,7 +53,7 @@
   <p class="text-center">
 
     <span>{{$confessions->created_at->diffForHumans()}}, by</span>
-    <a class="ml-1 text-indigo-600 hover:underline" href="#">{{ucFirst($confessions->user->name)}}    
+    <a class="ml-1 text-indigo-600 hover:underline" href="#">{{ucFirst($confessions->user->name ?? 'error: user name not found')}}    
       
     </a>
     @if(auth()->user()->id == $confessions->user_id)

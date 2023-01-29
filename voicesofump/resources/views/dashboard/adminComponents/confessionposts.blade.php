@@ -35,7 +35,7 @@
                                         </td>
                                         <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
                                             <div class="flex items-center">
-                                                <span class="text-base font-medium text-center leading-none text-gray-700 mr-1 hover:text-blue-600 truncate">{{$conf->user->email}}</span>
+                                                <span class="text-base font-medium text-center leading-none text-gray-700 mr-1 hover:text-blue-600 truncate">{{$conf->user->email ?? 'error: email not found'}}</span>
                                             </div>
                                         </td>
                                         <td class="p-3 text-sm text-gray-700 whitespace-nowrap">
